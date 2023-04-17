@@ -1,36 +1,47 @@
-const canvas = document.getElementById("myCanvas");
-const ctx = canvas.getContext("2d");
+/*
+The game.js file sets up the canvas context and contains the main loop that will drive the whole program. 
+*/
 
-let lastTime = 0;
-let counter = 0;
+// Imports
+import { getGlobal } from "../globals.js";
 
-function gameLoop(timestamp) {
-    const deltaTime = timestamp - lastTime;
-    lastTime = timestamp;
+// Global page variables 
+let ctx;
+let canvas;
+let count = 0;
 
-    // Clear canvas
+/********************
+Initialize the canvas and start the game loop
+********************/
+
+export default function startGame() {
+    // Get canvas and context
+    ctx = getGlobal('ctx');
+    canvas = getGlobal('canvas');
+
+    // Start the game loop
+    gameLoop();
+}
+
+/********************
+The main gameLoop example: 
+- Clear the canvas
+- Draw the count on the canvas
+- Increment the count
+- Repeat the process using requestAnimationFrame()
+********************/
+
+function gameLoop() {
+    // Clear the canvas (This always stays at the top)
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Update game state
-    update(deltaTime);
+    // Draw the count on the canvas
+    ctx.font = "30px Arial";
+    ctx.fillText(count, 50, 100);
 
-    // Draw game objects
-    draw();
+    // Increment the count
+    count++;
 
-    // Request next frame
+    // Loop this function (this always stays at the bottom)
     requestAnimationFrame(gameLoop);
 }
-
-function update(deltaTime) {
-    // Increment counter
-    counter++;
-}
-
-function draw() {
-    // Draw counter on canvas
-    ctx.font = "30px Arial";
-    ctx.fillText(`Counter: ${counter}`, 10, 50);
-}
-
-// Start game loop
-requestAnimationFrame(gameLoop);
