@@ -7,7 +7,7 @@ import { getGlobal } from '../globals.js';
 
 export default function loginSucceed(message) {
   console.log("Received message:", message);
-  
+
   // Call the initGame function to start playing the game
   initGame();
 }
