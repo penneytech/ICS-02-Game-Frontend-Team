@@ -5,6 +5,10 @@ html, body {
   text-align: center;
 }
 
+td {
+    background-color: red;
+}
+
 #myCanvas{
     border-style: solid;
 }
@@ -14,6 +18,19 @@ html, body {
     width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+#characterbar {
+  display: flex;
+  width: 80%;
+  height: 30%;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right:15px;
+  color: red;
+  justify-content: center;
+  
 }
 
 #loginmessagediv {
@@ -60,4 +77,37 @@ button:hover {
     background-color: #ce7373;
     border-radius: 10px;
     transition: 0.2s;
+  
+}
+#character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+#head img,
+#body img,
+#legs img {
+  width: 30%;
+  height: auto;
+}
+
+#arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10%;
+}
+
+#arrows > div {
+  width: 10%;
+  height: auto;
+  background-color: gray;
+  opacity: 0.5;
+}
+
+#arrows > div:hover {
+  cursor: pointer;
+  opacity: 1;
 }

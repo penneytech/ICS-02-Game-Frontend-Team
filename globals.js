@@ -7,6 +7,7 @@ const globals = {
   socket: [],
   canvas: [],
   ctx: [],
+  leaderboard: [],
 };
 
 // Define a function to set a global variable

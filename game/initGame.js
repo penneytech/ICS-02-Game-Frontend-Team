@@ -8,7 +8,7 @@ import startGame from './game.js';
 export default function initGame() {
   // Get a reference to the content div
   const contentDiv = document.getElementById("content");
-  
+
   // Clear the content div
   contentDiv.innerHTML = "";
 
