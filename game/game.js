@@ -7,6 +7,7 @@ import { getGlobal } from "../globals.js";
 import { move } from "./Shape.js";
 import { generateMap } from './generateMap.js';
 import { keyPress } from './keyPress.js';
+import { moveJoystick } from "./joystick.js";
 
 // Global page variables 
 let ctx;
@@ -43,6 +44,9 @@ function gameLoop() {
 
   // Call keyPress
   keyPress();
+
+  // Call joystick
+  moveJoystick();
 
   // Loop this function (this always stays at the bottom)
   requestAnimationFrame(gameLoop);

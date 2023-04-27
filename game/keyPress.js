@@ -62,11 +62,11 @@ export function keyPress() {
   }
 
   // Limit the movement of the sprite within the map
-  if (playerposition.x <= 10) {
-    playerposition.x = 10;
+  if (playerposition.x <= 15) {
+    playerposition.x = 15;
   }
-  if (playerposition.y <= 10) {
-    playerposition.y = 10;
+  if (playerposition.y <= 15) {
+    playerposition.y = 15;
   }
   if (playerposition.x >= 390) {
     playerposition.x = 390;
