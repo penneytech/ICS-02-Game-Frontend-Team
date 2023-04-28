@@ -8,6 +8,7 @@ const globals = {
   canvas: [],
   ctx: [],
   playerposition: { "x": 200, "y": 200 },
+  leaderboard: [],
 };
 
 // Define a function to set a global variable

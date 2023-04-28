@@ -46,4 +46,14 @@ function gameLoop() {
 
   move();
 
+
+  // Draw the count on the canvas
+  //ctx.font = "30px Arial";
+  //ctx.fillText(count, 50, 100);
+
+  // Increment the count
+  //count++;
+
+  // Loop this function (this always stays at the bottom)
+  //requestAnimationFrame(gameLoop);
 }

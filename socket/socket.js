@@ -8,7 +8,7 @@ import loginFail from './loginFail.js';
 import loginSucceed from './loginSucceed.js';
 
 // Connect to the server and set the socket global variable
-const socket = io("https://ics-02-game-studio-backend-team.ics3uc-2023s-02.repl.co");
+const socket = io("https://copy-ics-02-game-backend-team.samchen24.repl.co");
 setGlobal('socket', socket);
 
 // Actions that happen when the connection is established
@@ -31,4 +31,9 @@ socket.on("loginFailed", (message) => {
 // When a login succeeds, fetch the gameHTML and start the game
 socket.on("loginSucceed", (message) => {
   loginSucceed(message);
+});
+
+// When a login fails, receive a message from the server
+socket.on("leaderboard", (message) => {
+  setGlobal('leaderboard', message)
 });
