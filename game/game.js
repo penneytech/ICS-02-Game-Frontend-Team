@@ -8,15 +8,12 @@ import { move } from "./Shape.js";
 import { generateMap } from './generateMap.js';
 import { keyPress } from './keyPress.js';
 import { moveJoystick } from "./joystick.js";
+import { drawTreasure } from "./treasure.js";
 
 // Global page variables 
 let ctx;
 let canvas;
 let count = 0;
-
-/********************
-Initialize the canvas and start the game loop
-********************/
 
 export default function startGame() {
   // Get canvas and context
@@ -27,13 +24,6 @@ export default function startGame() {
   gameLoop();
 }
 
-/********************
-The main gameLoop example: 
-- Clear the canvas
-- Draw the count on the canvas
-- Increment the count
-- Repeat the process using requestAnimationFrame()
-********************/
 
 function gameLoop() {
   // Clear the canvas (This always stays at the top)
@@ -41,6 +31,9 @@ function gameLoop() {
 
   // Generate the map
   generateMap();
+
+  //Draw the treasure
+   drawTreasure();
 
   // Call keyPress
   keyPress();
