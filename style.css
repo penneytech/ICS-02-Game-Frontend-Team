@@ -11,6 +11,7 @@ td {
 
 #myCanvas{
     border-style: solid;
+  background-color: black;
 }
 
 #content {

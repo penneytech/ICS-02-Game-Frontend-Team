@@ -7,17 +7,18 @@ const globals = {
   socket: [],
   canvas: [],
   ctx: [],
+  playerposition: { "x": 200, "y": 200 },
   leaderboard: [],
 };
 
 // Define a function to set a global variable
 export function setGlobal(name, value) {
-  console.log(`Setting global variable '${name}' to '${value}'`);
+  //console.log(`Setting global variable '${name}' to '${value}'`);
   globals[name] = value;
 }
 
 // Define a function to get a global variable
 export function getGlobal(name) {
-  console.log(`Getting global variable '${name}': '${globals[name]}'`);
+  //console.log(`Getting global variable '${name}': '${globals[name]}'`);
   return globals[name];
 }
