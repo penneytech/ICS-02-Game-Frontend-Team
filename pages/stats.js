@@ -39,3 +39,5 @@ let players = JSON.parse(getGlobal('leaderboard'));
     content.appendChild(statsContainer)
 }
 
+const backButton = document.createElement('button')
+
