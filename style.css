@@ -1,12 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+
 html, body {
   height: 100%;
   width: 100%;
   margin: 0px;
   text-align: center;
+  font-family:'Chakra Petch' ;
+  text-shadow: 10px 5px 5px #422457;
+  background-image:linear-gradient(#745788,#245655) ;
+  
 }
+
 
 td {
     background-color: #a478c2;
+    padding: 10px;
+    font-weight: bold;
+  text-shadow: none;
+  box-shadow:10px 5px 5px #422457;
 }
 
 #myCanvas{
@@ -19,7 +30,13 @@ td {
     width: 100%;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center;   
+}
+
+.cards {
+  flex: 1;
+  height: 50px;
+  
 }
 
 #characterbar {
@@ -27,10 +44,12 @@ td {
   width: 80%;
   height: 30%;
   margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: 15px;
   margin-right:15px;
-  color: red;
+  color: black;
   justify-content: center;
+  text-shadow: none;
   
 }
 
@@ -62,20 +81,25 @@ input {
 button {
     border-style: none;
     padding: 8px;
-    width: min-content;
+    width: 175px;
     font-size: 22px;
     color: white;
-    background-color: #cec474;
+    background-color: #5f4173;
     border-radius: 10px;
     transition: 0.2s;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-family: 'Chakra Petch';
+  box-shadow:10px 5px 5px #422457 ;
 }
 button:hover {
     border-style: none;
     padding: 8px;
-    width: min-content;
+    width: 175px;
     font-size: 22px;
     color: white;
-    background-color: #ce7373;
+    background-color: #e8d058;
     border-radius: 10px;
     transition: 0.2s;
   
@@ -111,4 +135,9 @@ button:hover {
 #arrows > div:hover {
   cursor: pointer;
   opacity: 1;
+}
+
+.cards {
+  align-items: center;
+  display: flex;
 }
