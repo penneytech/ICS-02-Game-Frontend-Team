@@ -9,7 +9,6 @@ import menu from '../pages/menu.js'
 
 export default function loginSucceed(message) {
   console.log("Received message:", message);
-  
   // Call the menu function to start playing the game
   menu();
 }
