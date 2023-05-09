@@ -9,11 +9,11 @@ import { generateMap } from './generateMap.js';
 import { keyPress } from './keyPress.js';
 import { moveJoystick } from "./joystick.js";
 import { drawTreasure } from "./treasure.js";
+import { collectTreasure } from "./Collect.js";
 
 // Global page variables 
 let ctx;
 let canvas;
-let count = 0;
 
 export default function startGame() {
   // Get canvas and context
@@ -33,8 +33,11 @@ function gameLoop() {
   generateMap();
 
   //Draw the treasure
-   drawTreasure();
+  drawTreasure();
 
+  //collect the treasure
+
+  
   // Call keyPress
   keyPress();
 
@@ -46,14 +49,6 @@ function gameLoop() {
 
   move();
 
+  collectTreasure();
 
-  // Draw the count on the canvas
-  //ctx.font = "30px Arial";
-  //ctx.fillText(count, 50, 100);
-
-  // Increment the count
-  //count++;
-
-  // Loop this function (this always stays at the bottom)
-  //requestAnimationFrame(gameLoop);
 }

@@ -68,10 +68,10 @@ export function keyPress() {
   if (playerposition.y <= 15) {
     playerposition.y = 15;
   }
-  if (playerposition.x >= 390) {
-    playerposition.x = 390;
+  if (playerposition.x >= 380) {
+    playerposition.x = 380;
   }
-  if (playerposition.y >= 390) {
-    playerposition.y = 390;
+  if (playerposition.y >= 370) {
+    playerposition.y = 370;
   }
 }

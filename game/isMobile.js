@@ -5,9 +5,12 @@ export function isMobile() {
     // Then log this message to the console
     // console.log('Media Query Matched!', window.innerWidth)
     document.getElementById("joy1Div").style.display = 'none';
-  } else if (window.innerWidth <= 600) {
+  } else if (window.innerWidth <= 600 && window.innerWidth > 500) {
     document.getElementById("joy1Div").style.display = 'block';
+  } else if (window.innerWidth <= 500) {
+    return true;
   }
+  return false;
 }
 
 // Add a listener for when the window resizes
