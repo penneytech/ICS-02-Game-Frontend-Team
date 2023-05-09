@@ -1,68 +1,40 @@
-import { getGlobal } from "../globals.js";
+import { getGlobal, setGlobal } from "../globals.js";
 
-const images = [];
-images[1] = new Image()
-images[1].src = '../tiles/tile3.png';
+//const images = getGlobal('mapimages');
 
-images[0] = new Image(1)
-images[0].src = '../tiles/tile2.png';
+/*
+RENDER IMAGES BY MAP
+*/
 
-const tileSize = 40;
-const data = [
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-];
+const tileSize = 32;
 
-export function generateMap() {
+export function generateMap(map) {
+    const images = getGlobal('mapimages');
 
-  const canvas = getGlobal('canvas');
-  const ctx = getGlobal('ctx');
-  const mapWidth = 10;
-  const mapLength = 10;
+    const canvas = getGlobal("canvas");
+    const ctx = getGlobal("ctx");
+    const mapWidth = 40;
+    const tileSize = 32;
+    const renderDistance = 100;
+    const playerposition = getGlobal("playerposition");
+    const playerTileX = Math.floor(playerposition.x / tileSize);
+    const playerTileY = Math.floor(playerposition.y / tileSize);
 
-  const playerposition = getGlobal('playerposition')
-  //console.log(playerposition);
-
-  for (let i = 1; i < data.length; i++) {
-    if (data[i] === 1) {
-
-      let x = (i % mapWidth) * tileSize;
-      let y = Math.floor(i / mapLength) * tileSize;
-
-      x = x - playerposition.x + 200;
-      y = y - playerposition.y + 200;
-      ctx.drawImage(images[data[i]],
-        x,
-        y,
-        tileSize,
-        tileSize);
+    for (let x = playerTileX - renderDistance; x <= playerTileX + renderDistance; x++) {
+        for (let y = playerTileY - renderDistance; y <= playerTileY + renderDistance; y++) {
+            const tileX = x * tileSize - playerposition.x + canvas.width / 2;
+            const tileY = y * tileSize - playerposition.y + canvas.height / 2;
+            if (tileX >= -tileSize && tileX <= canvas.width && tileY >= -tileSize && tileY <= canvas.height) {
+                const tileIndex = y * mapWidth + x;
+                if (map[tileIndex] !== undefined) {
+                    try {
+                        ctx.drawImage(images[map[tileIndex]], tileX, tileY, tileSize, tileSize);
+                    } catch (e) {
+                        //console.log('[GenerateMap]: ERROR on ' + tileIndex, e)
+                    }
+                }
+            }
+        }
     }
-  }
-
-  for (let i = 0; i < data.length; i++) {
-    if (data[i] === 0) {
-
-      let x = (i % mapWidth) * tileSize;
-      let y = Math.floor(i / mapLength) * tileSize;
-
-      x = x - playerposition.x + 200;
-      y = y - playerposition.y + 200;
-      ctx.drawImage(images[data[i]],
-        x,
-        y,
-        tileSize,
-        tileSize);
-    }
-  }
-
 }
-
 
