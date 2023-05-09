@@ -15,6 +15,11 @@ import { collectTreasure } from "./Collect.js";
 let ctx;
 let canvas;
 
+// Import maps 
+import backgroundmap from '../map/background.js';
+import details from '../map/details.js';
+import wallsfloor from '../map/wallsfloor.js';
+
 export default function startGame() {
   // Get canvas and context
   ctx = getGlobal('ctx');
@@ -30,10 +35,14 @@ function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Generate the map
-  generateMap();
+  generateMap(backgroundmap);
+  generateMap(details);
+  generateMap(wallsfloor);
 
   //Draw the treasure
   drawTreasure();
+
+  
 
   //collect the treasure
 

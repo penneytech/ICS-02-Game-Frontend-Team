@@ -8,6 +8,7 @@ RENDER IMAGES BY MAP
 
 const tileSize = 32;
 
+// New Change! 
 export function generateMap(map) {
     const images = getGlobal('mapimages');
 
@@ -25,14 +26,16 @@ export function generateMap(map) {
             const tileX = x * tileSize - playerposition.x + canvas.width / 2;
             const tileY = y * tileSize - playerposition.y + canvas.height / 2;
             if (tileX >= -tileSize && tileX <= canvas.width && tileY >= -tileSize && tileY <= canvas.height) {
-                const tileIndex = y * mapWidth + x;
-                if (map[tileIndex] !== undefined) {
+                const tileIndex = Math.max(0, y * mapWidth + x);
+                
                     try {
+                        if (map[tileIndex] !== undefined) {
                         ctx.drawImage(images[map[tileIndex]], tileX, tileY, tileSize, tileSize);
+                        }
                     } catch (e) {
                         //console.log('[GenerateMap]: ERROR on ' + tileIndex, e)
                     }
-                }
+                
             }
         }
     }
