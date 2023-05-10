@@ -1,7 +1,6 @@
 import customization from "./customization.js";
-import play from "./play.js";
 import stats from "./stats.js";
-
+import initGame from "../game/initGame.js";
 
 export default function menu() {
 
@@ -18,7 +17,8 @@ export default function menu() {
     button1.textContent = "Play";
     button1.onclick = function() {
         console.log("ambers")
-        play()
+       // play()
+       initGame();
     }
 
     const button2 = document.createElement("button");

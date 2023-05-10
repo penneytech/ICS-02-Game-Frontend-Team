@@ -16,7 +16,7 @@ import { loadImages } from './game/loadImages.js'
 async function startGame() {
   loadImages().then(() => {
     isMobile()
-    initGame()
+   // initGame()
   }).catch(error => {
     console.log(error)
     // handle error here
@@ -24,20 +24,11 @@ async function startGame() {
 }
 
 startGame();
-// import './pages/loginDialogue.js'
-
 
 // Import login dialoguie
 // import loginDialogue from './pages/loginDialogue.js'
 // loginDialogue(); 
 
-// // Load customization screen
-// import customization from './pages/customization.js'
-// customization(); 
-
 // // Import menu function
-// import menu from './pages/menu.js'
-// menu();
-
-// import initGame from './game/initGame.js';
-// initGame();
+  import menu from './pages/menu.js'
+  menu();
