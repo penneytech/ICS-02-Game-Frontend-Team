@@ -1,45 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-html,
-body {
+html, body {
   height: 100%;
   width: 100%;
   margin: 0px;
   text-align: center;
-  font-family: 'Chakra Petch';
-  text-shadow: 10px 5px 5px #422457;
-  background-image: linear-gradient(#745788, #245655);
+  background-image: linear-gradient(90deg, #f56bae, #ffc7e5);
+  
 }
 
-td {
-  background-color: #a478c2;
-  padding: 10px;
-  font-weight: bold;
-text-shadow: none;
-box-shadow:10px 5px 5px #422457;
-}
-
-#title {
+#title{
   opacity: 1;
   font-size: 25px;
   margin: 10px;
-}
-
-#main {
   display: flex;
-  flex-direction: column;
-  border-style: solid;
-  height: 100vh;
-  width: 100vw;
-  margin: 0px;
-  text-align: center;
-  font-family: 'Lato';
-
+  justify-content: center;
+  flex: 1;
 }
 
-#myCanvas {
+#myCanvas{
   border-style: solid;
   background-color: black;
+  margin: 10px;
 }
 
 #content {
@@ -47,6 +29,7 @@ box-shadow:10px 5px 5px #422457;
   width: 100%;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 #loginmessagediv {
@@ -77,85 +60,83 @@ input {
 button {
   border-style: none;
   padding: 8px;
-  width: 275px;
+  width: min-content;
   font-size: 22px;
   color: white;
-  background-color: #5f4173;
+  background-color: #cec474;
   border-radius: 10px;
   transition: 0.2s;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  font-family: 'Chakra Petch';
-  box-shadow: 10px 5px 5px #422457;
 }
 
 button:hover {
   border-style: none;
   padding: 8px;
-  width: 275px;
+  width: min-content;
   font-size: 22px;
   color: white;
-  background-color: #e8d058;
+  background-color: #ce7373;
   border-radius: 10px;
   transition: 0.2s;
-
 }
 
 #joy1Div {
-  width: 100px;
+  opacity: 0;
+  width:100px;
   height: 100px;
-  margin: 20px;
+  margin:20px;
   position: absolute;
-  bottom: 0px;
-  right: 0px;
-
+  left:0;
+  right:0;
 }
 
 
-@media only screen and (orientation:portrait) and (max-width: 500px) {
 
-  #title {
-    opacity: 0;
-    font-size: 0;
-    margin: 0px;
+@media only screen and (orientation:portrait) and (max-width: 500px){
 
+  html, body {
+  min-height: 100%;
+  width: 100%;
   }
-
+  
   #main {
-    display: flex;
+    display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
-
   }
 
+#title{
+  opacity: 0;
+  font-size: 0px;
+  margin: 0px;
+}
+  
   #screen {
-    transform: rotate(90deg);
-
+    transform: rotate(90deg); 
+    display: flex;
+     justify-content: center;
+  align-items: center;
   }
-
-
+  
   #content {
     display: flex;
     width: 100%;
     flex-direction: row;
     align-items: center;
-
-
   }
 
   #joy1Div {
-    width: 100px;
-    height: 100px;
-    margin: 20px;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-
-  }
-
-
+  opacity: 1;
+  width:100px;
+  height: 100px;
+  margin:20px;
+  position: absolute;
+  left:0;
+  right:0;
+    bottom: 0;
 }
+   
+} 
+

@@ -2,9 +2,10 @@ import { setGlobal } from "../globals.js";
 
 let images = [];
 
-export function loadImages() {
+export function loadMapImages() {
+    
   return new Promise((resolve) => {
-    console.log("LOADING IMAGES");
+    console.log("LOADING MAP IMAGES");
       
     const imagenames = [
       3, 10, 11, 40, 41, 42, 50, 56, 60, 69, 75, 78, 79, 86, 91, 92, 103, 139, 169,

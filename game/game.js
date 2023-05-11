@@ -4,12 +4,12 @@ The game.js file sets up the canvas context and contains the main loop that will
 
 // Imports
 import { getGlobal } from "../globals.js";
-import { move } from "./Shape.js";
+import { drawSprite } from "./drawSprite.js";
 import { generateMap } from './generateMap.js';
 import { keyPress } from './keyPress.js';
 import { moveJoystick } from "./joystick.js";
 import { drawTreasure } from "./treasure.js";
-import { collectTreasure } from "./Collect.js";
+import { collectTreasure } from "./collect.js";
 
 // Global page variables 
 let ctx;
@@ -42,22 +42,18 @@ function gameLoop() {
   //Draw the treasure
   drawTreasure();
 
-  
-
-  //collect the treasure
-
-  
   // Call keyPress
   keyPress();
 
   // Call joystick
   moveJoystick();
 
-  // Loop this function (this always stays at the bottom)
-  requestAnimationFrame(gameLoop);
-
-  move();
+  // Draw the player sprite
+  drawSprite();
 
   collectTreasure();
 
+  // Loop this function (this always stays at the bottom)
+  setTimeout(gameLoop, 16.67);
+  //requestAnimationFrame(gameLoop);
 }

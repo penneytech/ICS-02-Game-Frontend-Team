@@ -1,14 +1,14 @@
 import { getGlobal } from "../globals.js";
 
-const treasure = [
-  { "x": 350, "y": 50, "type": "Amber" },
-  { "x": 300, "y": 50, "type": "Ruby" },
-  { "x": 250, "y": 50, "type": "Sapphire" },
-  { "x": 200, "y": 50, "type": "Amber" },
-  { "x": 150, "y": 50, "type": "Ruby" },
-  { "x": 100, "y": 50, "type": "Sapphire" },
-  { "x": 50, "y": 50, "type": "Amber" }
-];
+// const treasure = [
+//   { "x": 350, "y": 50, "type": "Amber" },
+//   { "x": 300, "y": 50, "type": "Ruby" },
+//   { "x": 250, "y": 50, "type": "Sapphire" },
+//   { "x": 200, "y": 50, "type": "Amber" },
+//   { "x": 150, "y": 50, "type": "Ruby" },
+//   { "x": 100, "y": 50, "type": "Sapphire" },
+//   { "x": 50, "y": 50, "type": "Amber" }
+// ];
 
 const playerposition = getGlobal('playerposition')
 
@@ -18,8 +18,9 @@ export function getTreasure() {
 
 export function drawTreasure() {
 
-  const ctx = getGlobal('ctx');
-    const treasure = getGlobal('treasure');
+//  if(wallsfloor[i] == 10){
+    const ctx = getGlobal('ctx');
+  const treasure = getGlobal('treasure');
   for (let i = 0; i < treasure.length; i++) {
     ctx.beginPath();
     let x = treasure[i].x;
@@ -37,4 +38,7 @@ export function drawTreasure() {
     }
     ctx.fill();
   }
+//  }else{
+    
+//  }
 }

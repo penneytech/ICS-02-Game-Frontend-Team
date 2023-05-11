@@ -2,12 +2,15 @@
 This function initializes the canvas for the game by creating a canvas element and appending it to the content div. It also sets the canvas dimensions and creates the canvas context. Finally, it starts the game by calling the startGame() function.
 */
 
-import { setGlobal } from "../globals.js";
+import { getGlobal, setGlobal } from "../globals.js";
 import startGame from './game.js';
-
-//import tiles from "./Tiles.js";
+import { isMobile } from "./isMobile.js";
+import { screenState } from '../screen/screenState.js'
 
 export default function initGame() {
+
+    screenState();
+    
   // Get a reference to the content div
   const contentDiv = document.getElementById("content");
 
@@ -18,8 +21,8 @@ export default function initGame() {
   const canvas = document.createElement("canvas");
 
   // Set the canvas dimensions to 200 x 200
-  canvas.width = 400;
-  canvas.height = 400;
+  canvas.width = getGlobal("canvasWidth");
+  canvas.height = getGlobal("canvasHeight");;
 
   // Give the canvas an id of "myCanvas"
   canvas.id = "myCanvas";
