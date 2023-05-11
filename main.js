@@ -13,23 +13,26 @@ import initGame from './game/initGame.js';
 import { isMobile } from './game/isMobile.js';
 import { loadMapImages } from './map/loadMapImages.js'
 import { loadCharacterImages } from './characters/loadCharacterImages.js'
+import menu from './pages/menu.js'
 
 async function startGame() {
 
-    // Load Map Images
+  // Load Map Images
   loadMapImages().then(() => {
 
-      //Load Character Images
-  loadCharacterImages().then(() => {
+    //Load Character Images
+    loadCharacterImages().then(() => {
       //Load Character Images
 
-      
       isMobile()
-      initGame()
-     }).catch(error => {
-        console.log(error)
-        // handle error here
-     });
+      // initGame()
+      // // Import menu function
+      menu();
+
+    }).catch(error => {
+      console.log(error)
+      // handle error here
+    });
   }).catch(error => {
     console.log(error)
     // handle error here
@@ -37,20 +40,3 @@ async function startGame() {
 }
 
 startGame();
-// import './pages/loginDialogue.js'
-
-
-// Import login dialoguie
-// import loginDialogue from './pages/loginDialogue.js'
-// loginDialogue(); 
-
-// // Load customization screen
-// import customization from './pages/customization.js'
-// customization(); 
-
-// // Import menu function
-// import menu from './pages/menu.js'
-// menu();
-
-// import initGame from './game/initGame.js';
-// initGame();

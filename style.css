@@ -5,9 +5,20 @@ html, body {
   width: 100%;
   margin: 0px;
   text-align: center;
-  background-image: linear-gradient(90deg, #f56bae, #ffc7e5);
-  
+  font-family:'Chakra Petch' ;
+  text-shadow: 10px 5px 5px #422457;
+  background-image:linear-gradient(#745788,#245655) ;
+  background-attachment: fixed;
 }
+
+td {
+  background-color: #a478c2;
+  padding: 10px;
+  font-weight: bold;
+text-shadow: none;
+box-shadow:10px 5px 5px #422457;
+}
+
 
 #title{
   opacity: 1;
@@ -16,6 +27,35 @@ html, body {
   display: flex;
   justify-content: center;
   flex: 1;
+}
+
+#content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;   
+}
+
+.cards {
+  flex: 1;
+  height: 50px;
+  
+}
+
+
+#characterbar, characterbar2 {
+  display: flex;
+  width: 80%;
+  height: 30%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right:15px;
+  color: black;
+  justify-content: center;
+  text-shadow: none;
+  
 }
 
 #myCanvas{
@@ -60,21 +100,26 @@ input {
 button {
   border-style: none;
   padding: 8px;
-  width: min-content;
+  width: 240px;
   font-size: 22px;
   color: white;
-  background-color: #cec474;
+  background-color: #5f4173;
   border-radius: 10px;
   transition: 0.2s;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-family: 'Chakra Petch';
+box-shadow:10px 5px 5px #422457 ;
 }
 
 button:hover {
   border-style: none;
   padding: 8px;
-  width: min-content;
+  width: 245px;
   font-size: 22px;
   color: white;
-  background-color: #ce7373;
+  background-color: #e8d058;
   border-radius: 10px;
   transition: 0.2s;
 }
@@ -89,7 +134,57 @@ button:hover {
   right:0;
 }
 
+#character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
 
+#head img,
+#body img,
+#legs img {
+  width: 30%;
+  height: auto;
+}
+
+#arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10%;
+}
+
+#arrows > div {
+  width: 10%;
+  height: auto;
+  background-color: gray;
+  opacity: 0.5;
+}
+
+#arrows > div:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.cards {
+  align-items: center;
+  display: flex;
+}
+
+#character1 {
+  background-color:#5f4173; ;
+}
+
+@media (max-width: 900px) {
+
+  #characterbar{
+      flex-direction: column;
+  }
+  #characterbar2{
+      flex-direction: column;
+  }
+}
 
 @media only screen and (orientation:portrait) and (max-width: 500px){
 

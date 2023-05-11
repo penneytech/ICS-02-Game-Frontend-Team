@@ -35,7 +35,11 @@ socket.on("loginSucceed", (message) => {
 
 // // Receive treasure from backend
 socket.on("treasureinit", (message) => {
-
 console.log("treasure set:", message)
   setGlobal('treasure', message)
 });
+
+// Get leaderboard from the server
+socket.on("leaderboard", (message) => {
+    setGlobal('leaderboard', message)
+  });
