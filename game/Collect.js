@@ -4,7 +4,7 @@ import { getTreasure } from "./treasure.js";
 
 // Define a function to handle a hit detection/collection
 function collectGem(data, socket, io) {
-  console.log("");
+    console.log("");
 }
 
 let hitDetected = false;
@@ -14,30 +14,37 @@ const width = 8;
 
 export function collectTreasure(playerRect, treasureRect) {
 
-  const treasure = getGlobal('treasure');
-  const playerposition = getGlobal('playerposition');
+    const treasure = getGlobal('treasure');
+    const playerposition = getGlobal('playerposition');
+    const ctx = getGlobal('ctx');
 
-  treasure.forEach((piece, index) => {
-    if (playerposition.x < piece.x + width &&
-      playerposition.x + playerposition.width > piece.x &&
-      playerposition.y < piece.y + height &&
-      playerposition.y + playerposition.height > piece.y) {
-      hitDetected = true;
-      if (messageSent == false) {
-        let socket = getGlobal('socket');
-        socket.emit("gemcollected", index);
-        console.log("Hit detected with:", piece, index);
-        messageSent = true;
-      }
+  // draw circle
+  ctx.beginPath();
+  ctx.arc(playerposition.x, playerposition.y, 5, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.stroke();
 
-    } // End of if statement
-  }); // End of foreach
+    treasure.forEach((piece, index) => {
+        if (playerposition.x < piece.x + width &&
+            playerposition.x + playerposition.width > piece.x &&
+            playerposition.y < piece.y + height &&
+            playerposition.y + playerposition.height > piece.y) {
+            hitDetected = true;
+            if (messageSent == false) {
+                let socket = getGlobal('socket');
+                socket.emit("gemcollected", index);
+                console.log("Hit detected with:", piece, index);
+                messageSent = true;
+            }
 
-  if (hitDetected == false) {
-    messageSent = false;
-  }
+        } // End of if statement
+    }); // End of foreach
 
-  hitDetected = false;
+    if (hitDetected == false) {
+        messageSent = false;
+    }
+
+    hitDetected = false;
 
 } // End of collectTreasure
 

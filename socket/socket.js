@@ -43,3 +43,12 @@ console.log("treasure set:", message)
 socket.on("leaderboard", (message) => {
     setGlobal('leaderboard', message)
   });
+
+// // Receive treasure from backend
+socket.on("treasureupdate", (message) => {
+console.log("treasure set:", message)
+    let treasure = getGlobal('treasure');
+    treasure[message.index].x = message.x;
+    treasure[message.index].y = message.y;
+  setGlobal('treasure', treasure);
+});
