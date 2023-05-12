@@ -25,9 +25,9 @@ async function startGame() {
       //Load Character Images
 
       isMobile()
-      // initGame()
+       initGame()
       // // Import menu function
-      menu();
+      //menu();
 
     }).catch(error => {
       console.log(error)
