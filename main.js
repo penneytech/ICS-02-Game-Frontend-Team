@@ -15,6 +15,9 @@ import { loadMapImages } from './map/loadMapImages.js'
 import { loadCharacterImages } from './characters/loadCharacterImages.js'
 import menu from './pages/menu.js'
 
+import { initopponents } from './socket/initOpponents.js';
+initopponents();
+
 async function startGame() {
 
   // Load Map Images
