@@ -9,6 +9,7 @@ const globals = {
     canvasHeight: 400,
     ctx: [],
     playerposition: { "x": 200, "y": 200, "width": 50, "height": 50 },
+    username: "user1",
     points: 0,
     treasure: [],
     mapWidth: 1280,

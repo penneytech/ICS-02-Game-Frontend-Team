@@ -8,7 +8,9 @@ import loginFail from './loginFail.js';
 import loginSucceed from './loginSucceed.js';
 
 // Connect to the server and set the socket global variable
-const socket = io("https://ics-02-game-backend-team.yichengwang3.repl.co");
+//const socket = io("https://ics-02-game-backend-team.yichengwang3.repl.co");
+const socket = io("http://localhost:3000");
+
 setGlobal('socket', socket);
 
 // Actions that happen when the connection is established
@@ -51,4 +53,26 @@ console.log("treasure set:", message)
     treasure[message.index].x = message.x;
     treasure[message.index].y = message.y;
   setGlobal('treasure', treasure);
+});
+
+socket.on("updateopponentposition", (message) => {
+  //opponentMovement(message);
+});
+
+
+socket.on("initposition", (message) => {
+  console.log("Recieved Initial Position:", message);
+  let playerposition = getGlobal('playerposition');
+  setGlobal('playerposition', { "x": message.x, "y": message.y });
+});
+
+
+socket.on("initopponents", (message) => {
+  console.log("Inital opponents:", message);
+  //initopponents(message);
+});
+
+socket.on("removeopponent", (message) => {
+  console.log("Remove opponent:", message);
+  //opponentRemove(message);
 });

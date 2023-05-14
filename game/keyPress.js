@@ -1,4 +1,4 @@
-import { getGlobal } from "../globals.js";
+import { getGlobal, setGlobal } from "../globals.js";
 import { canMove } from "./canMove.js"
 
 let speed = getGlobal("speed");
@@ -11,9 +11,12 @@ let downPressed = false;
 let length = getGlobal("mapLength");
 let width = getGlobal("mapWidth");
 
+let playerpositionold = { "x": 100, "y": 100 };
+
+//let x = 100, y = 100;
 
 // Add event listeners for key presses
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function (event) {
 
   if (event.code === "KeyA") {
     leftPressed = true;
@@ -27,7 +30,7 @@ document.addEventListener("keydown", function(event) {
 
 });
 
-document.addEventListener("keyup", function(event) {
+document.addEventListener("keyup", function (event) {
 
   if (event.code === "KeyA") {
     leftPressed = false;
@@ -71,5 +74,21 @@ export function keyPress() {
   if (playerposition.y >= length) {
     playerposition.y = length;
   }
+
+  // Check to see if playerposition has updated. 
+
+  if (JSON.stringify(playerpositionold) !== JSON.stringify({ "x": playerposition.x, "y": playerposition.y })) {
+    let socket = getGlobal('socket');
+    console.log("EMIT NEW POSITION", { "x": playerposition.x, "y": playerposition.y });
+    playerpositionold = { "x": playerposition.x, "y": playerposition.y };
+    setGlobal('playerposition', playerposition)
+    socket.emit("updateclientposition", { 'username': getGlobal('username'), "x": playerposition.x, "y": playerposition.y })
+  } 
+
+  //console.log("playerposition", playerposition);
+  //console.log("playerpositionold", playerpositionold);
+
+setGlobal('playerposition', playerposition);
+
 }
 
