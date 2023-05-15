@@ -64,5 +64,5 @@ socket.on("clientupdateposition", (message) => {
 socket.on("clientspawn", (message) => {
   console.log("Recieved Initial Position:", message);
   let playerposition = getGlobal('playerposition');
-  setGlobal('playerposition', { "x": message.x, "y": message.y });
+  //setGlobal('playerposition', { "x": message.x, "y": message.y });
 });

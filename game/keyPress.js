@@ -79,23 +79,18 @@ export function keyPress() {
 
   if (JSON.stringify(playerpositionold) !== JSON.stringify({ "x": playerposition.x, "y": playerposition.y })) {
     let socket = getGlobal('socket');
-    console.log("EMIT NEW POSITION", { "x": playerposition.x, "y": playerposition.y });
+    //console.log("EMIT NEW POSITION", { "x": playerposition.x, "y": playerposition.y });
     playerpositionold = { "x": playerposition.x, "y": playerposition.y };
     setGlobal('playerposition', playerposition)
-    socket.emit("updateposition", { 
-      'username': getGlobal('username'), 
-      "x": playerposition.x, 
-      "y": playerposition.y, 
-      "type":  getGlobal('type'),
+    socket.emit("updateposition", {
+      'username': getGlobal('username'),
+      "x": playerposition.x,
+      "y": playerposition.y,
+      "type": getGlobal('type'),
       "character": getGlobal('character'),
-    
     })
-  } 
 
-  //console.log("playerposition", playerposition);
-  //console.log("playerpositionold", playerpositionold);
-
-setGlobal('playerposition', playerposition);
-
+    setGlobal('playerposition', playerposition);
+  }
 }
 

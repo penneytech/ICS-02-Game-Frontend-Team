@@ -49,9 +49,7 @@ export default function loginDialogue() {
     console.log("[login.js]: Sent Login Information:", username, password);
 
     // Set the username global variable
-    const username = getGlobal('username');
-    username = usernameinput.value;
-    setGlobal('username', username);
+    setGlobal('username', usernameinput.value);
 
     // Send a login event to the server with the provided credentials
     socket.emit("login", {

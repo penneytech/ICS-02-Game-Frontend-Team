@@ -1,6 +1,7 @@
 import { getGlobal, setGlobal } from "../globals.js";
 
 export default function moveOpponents(message) {
+    console.log("MESSAGE", message)
     let userMap = getGlobal('userMap'); // Assuming userMap is a dictionary with usernames as keys.
 
     // Parse the message if it's a string
@@ -17,6 +18,7 @@ export default function moveOpponents(message) {
     } else {
         // If the user doesn't exist in the map, add them to the map.
         userMap.set(message.username, {
+            username: message.username,
             x: message.x,
             y: message.y,
             type: message.type,

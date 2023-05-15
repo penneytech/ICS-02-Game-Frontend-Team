@@ -9,7 +9,7 @@ const globals = {
     canvasHeight: 600,
     ctx: [],
     playerposition: { "x": 300, "y": 300, "width": 50, "height": 50 },
-    username: "user1",
+    username: "",
     points: 0,
     type: "water",
     character: "piratemage",
