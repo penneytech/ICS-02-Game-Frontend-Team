@@ -55,24 +55,13 @@ console.log("treasure set:", message)
   setGlobal('treasure', treasure);
 });
 
-socket.on("updateopponentposition", (message) => {
+socket.on("clientupdateposition", (message) => {
+  console.log("Recieved position:", message);
   //opponentMovement(message);
 });
 
-
-socket.on("initposition", (message) => {
+socket.on("clientspawn", (message) => {
   console.log("Recieved Initial Position:", message);
   let playerposition = getGlobal('playerposition');
   setGlobal('playerposition', { "x": message.x, "y": message.y });
-});
-
-
-socket.on("initopponents", (message) => {
-  console.log("Inital opponents:", message);
-  //initopponents(message);
-});
-
-socket.on("removeopponent", (message) => {
-  console.log("Remove opponent:", message);
-  //opponentRemove(message);
 });

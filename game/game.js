@@ -10,6 +10,7 @@ import { keyPress } from './keyPress.js';
 import { moveJoystick } from "./joystick.js";
 import { drawTreasure } from "./treasure.js";
 import { collectTreasure } from "./Collect.js";
+import { userInterface } from "./userInterface.js";
 
 // Global page variables 
 let ctx;
@@ -51,6 +52,10 @@ function gameLoop() {
   // Draw the player sprite
   drawSprite();
 
+  // Create a user interface
+  userInterface();
+
+  // Collect treasure 
   collectTreasure();
 
   // Loop this function (this always stays at the bottom)

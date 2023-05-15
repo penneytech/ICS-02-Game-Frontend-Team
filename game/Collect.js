@@ -18,12 +18,6 @@ export function collectTreasure(playerRect, treasureRect) {
     const playerposition = getGlobal('playerposition');
     const ctx = getGlobal('ctx');
 
-    // draw circle
-    ctx.beginPath();
-    ctx.arc(playerposition.x, playerposition.y, 5, 0, 2 * Math.PI);
-    ctx.fill();
-    ctx.stroke();
-
     treasure.forEach((piece, index) => {
         if ((playerposition.x - width / 2) < piece.x + width &&
             (playerposition.x - width / 2) + playerposition.width > piece.x &&
