@@ -16,8 +16,7 @@ export default function menu() {
     const button1 = document.createElement("button");
     button1.textContent = "Play";
     button1.onclick = function() {
-        console.log("ambers")
-        initGame()
+        initGame();
     }
 
     const button2 = document.createElement("button");
@@ -29,7 +28,6 @@ export default function menu() {
     const button3 = document.createElement("button");
     button3.textContent = "Customization";
     button3.onclick = function() {
-        console.log("amber")
         customization()
     }
 

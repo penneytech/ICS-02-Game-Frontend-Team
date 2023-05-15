@@ -19,10 +19,10 @@ export function collectTreasure(playerRect, treasureRect) {
     const ctx = getGlobal('ctx');
 
     treasure.forEach((piece, index) => {
-        if ((playerposition.x - width / 2) < piece.x + width &&
-            (playerposition.x - width / 2) + playerposition.width > piece.x &&
-            (playerposition.y - height / 2) < piece.y + height &&
-            (playerposition.y - height / 2) + playerposition.height > piece.y) {
+        if ((playerposition.x - width ) < piece.x + width &&
+            (playerposition.x - width ) + playerposition.width > piece.x &&
+            (playerposition.y - height) < piece.y + height &&
+            (playerposition.y - height) + playerposition.height > piece.y) {
             hitDetected = true;
             if (messageSent == false) {
                 let socket = getGlobal('socket');

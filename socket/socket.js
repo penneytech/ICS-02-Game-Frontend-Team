@@ -6,6 +6,7 @@ This code connects to the server and sets the socket global variable using the i
 import { getGlobal, setGlobal } from '../globals.js';
 import loginFail from './loginFail.js';
 import loginSucceed from './loginSucceed.js';
+import moveOpponents from '../opponents/moveOpponents.js';
 
 // Connect to the server and set the socket global variable
 //const socket = io("https://ics-02-game-backend-team.yichengwang3.repl.co");
@@ -57,11 +58,11 @@ console.log("treasure set:", message)
 
 socket.on("clientupdateposition", (message) => {
   console.log("Recieved position:", message);
-  //opponentMovement(message);
+  moveOpponents(message);
 });
 
 socket.on("clientspawn", (message) => {
   console.log("Recieved Initial Position:", message);
   let playerposition = getGlobal('playerposition');
-  setGlobal('playerposition', { "x": message.x, "y": message.y });
+  //setGlobal('playerposition', { "x": message.x, "y": message.y });
 });

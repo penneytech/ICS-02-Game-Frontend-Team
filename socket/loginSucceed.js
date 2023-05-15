@@ -4,10 +4,14 @@ This code defines a function that handles a successful login attempt. It takes i
 
 import initGame from '../game/initGame.js';
 import { getGlobal } from '../globals.js';
+import menu from '../pages/menu.js';
 
 export default function loginSucceed(message) {
   console.log("Received message:", message);
 
+  // Open the Menu
+  menu();
+  
   // Call the initGame function to start playing the game
-  initGame();
+  //initGame();
 }
