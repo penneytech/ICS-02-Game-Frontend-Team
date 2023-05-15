@@ -82,7 +82,14 @@ export function keyPress() {
     console.log("EMIT NEW POSITION", { "x": playerposition.x, "y": playerposition.y });
     playerpositionold = { "x": playerposition.x, "y": playerposition.y };
     setGlobal('playerposition', playerposition)
-    socket.emit("updateposition", { 'username': getGlobal('username'), "x": playerposition.x, "y": playerposition.y })
+    socket.emit("updateposition", { 
+      'username': getGlobal('username'), 
+      "x": playerposition.x, 
+      "y": playerposition.y, 
+      "type":  getGlobal('type'),
+      "character": getGlobal('character'),
+    
+    })
   } 
 
   //console.log("playerposition", playerposition);

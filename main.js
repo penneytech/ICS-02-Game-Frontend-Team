@@ -14,9 +14,44 @@ import { isMobile } from './game/isMobile.js';
 import { loadMapImages } from './map/loadMapImages.js'
 import { loadCharacterImages } from './characters/loadCharacterImages.js'
 import menu from './pages/menu.js'
-
+import { getGlobal, setGlobal } from './globals.js';
 import { initopponents } from './socket/initOpponents.js';
-initopponents();
+
+// Create a new userMap object with dummy opponents
+
+let userMap = new Map();
+
+const opponents = [
+  {
+    username: "user1",
+    type: 'water',
+    character: 'piratemage',
+    x: 100,
+    y: 200,
+  },
+  {
+    username: "user2",
+    type: 'water',
+    character: 'piratemage',
+    x: 300,
+    y: 150,
+  },
+  {
+    username: "user3",
+    type: 'water',
+    character: 'piratemage',
+    x: 200,
+    y: 350,
+  },
+];
+
+opponents.forEach(opponent => {
+  userMap.set(opponent.id, opponent);
+});
+
+setGlobal('userMap', userMap);
+
+//initopponents();
 
 async function startGame() {
 

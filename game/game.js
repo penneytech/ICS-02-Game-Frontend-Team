@@ -11,7 +11,7 @@ import { moveJoystick } from "./joystick.js";
 import { drawTreasure } from "./treasure.js";
 import { collectTreasure } from "./Collect.js";
 import { userInterface } from "./userInterface.js";
-
+import { drawOpponents } from "../opponents/drawOpponents.js";
 // Global page variables 
 let ctx;
 let canvas;
@@ -49,8 +49,13 @@ function gameLoop() {
   // Call joystick
   moveJoystick();
 
+  // Draw opponents
+  drawOpponents();
+  
   // Draw the player sprite
   drawSprite();
+
+  // 
 
   // Create a user interface
   userInterface();
