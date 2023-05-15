@@ -186,7 +186,7 @@ button:hover {
   }
 }
 
-@media only screen and (orientation:portrait) and (max-width: 500px){
+/* @media only screen and (orientation:portrait) and (max-width: 500px){
 
   html, body {
   min-height: 100%;
@@ -233,5 +233,5 @@ button:hover {
     bottom: 0;
 }
    
-} 
+}  */
 

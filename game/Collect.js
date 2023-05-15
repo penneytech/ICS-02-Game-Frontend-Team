@@ -9,8 +9,8 @@ function collectGem(data, socket, io) {
 
 let hitDetected = false;
 let messageSent = false;
-const height = 8;
-const width = 8;
+const height = 30;
+const width = 30;
 
 export function collectTreasure(playerRect, treasureRect) {
 
@@ -18,17 +18,17 @@ export function collectTreasure(playerRect, treasureRect) {
     const playerposition = getGlobal('playerposition');
     const ctx = getGlobal('ctx');
 
-  // draw circle
-  ctx.beginPath();
-  ctx.arc(playerposition.x, playerposition.y, 5, 0, 2 * Math.PI);
-  ctx.fill();
-  ctx.stroke();
+    // draw circle
+    ctx.beginPath();
+    ctx.arc(playerposition.x, playerposition.y, 5, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
 
     treasure.forEach((piece, index) => {
-        if (playerposition.x < piece.x + width &&
-            playerposition.x + playerposition.width > piece.x &&
-            playerposition.y < piece.y + height &&
-            playerposition.y + playerposition.height > piece.y) {
+        if ((playerposition.x - width / 2) < piece.x + width &&
+            (playerposition.x - width / 2) + playerposition.width > piece.x &&
+            (playerposition.y - height / 2) < piece.y + height &&
+            (playerposition.y - height / 2) + playerposition.height > piece.y) {
             hitDetected = true;
             if (messageSent == false) {
                 let socket = getGlobal('socket');
@@ -47,12 +47,3 @@ export function collectTreasure(playerRect, treasureRect) {
     hitDetected = false;
 
 } // End of collectTreasure
-
-
-    // Send message to the server/backend saying that gem was collected with Index value
-
-
-// socket.emit(piece, index, 'gemCollected');
-
-// Export the function for other modules to use
-//module.exports = collectGem;

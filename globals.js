@@ -5,10 +5,10 @@ This code defines an object to hold the global variables and two functions to se
 // Define an object to hold the global variables
 const globals = {
     socket: [],
-    canvasWidth: 400,
-    canvasHeight: 400,
+    canvasWidth: 600,
+    canvasHeight: 600,
     ctx: [],
-    playerposition: { "x": 200, "y": 200, "width": 50, "height": 50 },
+    playerposition: { "x": 300, "y": 300, "width": 50, "height": 50 },
     username: "user1",
     points: 0,
     treasure: [],

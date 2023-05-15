@@ -1,16 +1,17 @@
 import { getGlobal } from "../globals.js";
 
-// const treasure = [
-//   { "x": 350, "y": 50, "type": "Amber" },
-//   { "x": 300, "y": 50, "type": "Ruby" },
-//   { "x": 250, "y": 50, "type": "Sapphire" },
-//   { "x": 200, "y": 50, "type": "Amber" },
-//   { "x": 150, "y": 50, "type": "Ruby" },
-//   { "x": 100, "y": 50, "type": "Sapphire" },
-//   { "x": 50, "y": 50, "type": "Amber" }
-// ];
-
 const playerposition = getGlobal('playerposition')
+
+let gemImages = {};
+
+function loadGemImages() {
+  let gemNames = ["Ruby", "Sapphire", "Amber"];
+  for (let i = 0; i < gemNames.length; i++) {
+    let img = new Image();
+    img.src = './images/' + gemNames[i] + '.png';
+    gemImages[gemNames[i]] = img;
+  }
+}
 
 export function getTreasure() {
   return treasure;
@@ -18,27 +19,23 @@ export function getTreasure() {
 
 export function drawTreasure() {
 
-//  if(wallsfloor[i] == 10){
-    const ctx = getGlobal('ctx');
+  const ctx = getGlobal('ctx');
   const treasure = getGlobal('treasure');
+  const canvasWidth = getGlobal('canvasWidth');
+  const canvasHeight = getGlobal('canvasHeight');
+
   for (let i = 0; i < treasure.length; i++) {
     ctx.beginPath();
     let x = treasure[i].x;
     let y = treasure[i].y;
-    x = x - playerposition.x + 200;
-    y = y - playerposition.y + 200;
-    ctx.arc(x, y, 10, 0, 2 * Math.PI);
+    x = x - playerposition.x + canvasWidth / 2;
+    y = y - playerposition.y + canvasHeight / 2;
 
-    if (String(treasure[i].gem) == "Ruby") {
-      ctx.fillStyle = "#f03567";
-    } else if (String(treasure[i].gem) == "Sapphire") {
-      ctx.fillStyle = "#35c1f0";
-    } else if (String(treasure[i].gem) == "Amber") {
-      ctx.fillStyle = "#fcd303";
+    let gemImage = gemImages[String(treasure[i].gem)];
+    if (gemImage) {
+      ctx.drawImage(gemImage, x, y, 40, 40);
     }
-    ctx.fill();
   }
-//  }else{
-    
-//  }
 }
+
+loadGemImages();
