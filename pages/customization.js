@@ -23,7 +23,7 @@ export default function customization() {
     characterButton1.innerHTML = "Rogue";
     characterButton1.value = "SELECT";
     characterButton1.onclick = function () {
-        socket.emit("Character chosen", "Rogue")
+        socket.emit("characterselect", "Rogue")
         console.log("The Rogue aspect has been selected!");
     };
 
@@ -38,7 +38,7 @@ export default function customization() {
     characterButton2.value = "SELECT";
     socket.emit("Character chosen", "Mage")
     characterButton2.onclick = function () {
-        socket.emit("Character chosen", "Mage")
+        socket.emit("characterselect", "Mage")
         console.log("The Mage aspect has been selected!");
     };
 
@@ -52,7 +52,7 @@ export default function customization() {
     characterButton3.innerHTML = "Knight";
     characterButton3.value = "SELECT";
     characterButton3.onclick = function () {
-        socket.emit("Character chosen", "Knight")
+        socket.emit("characterselect", "Knight")
         console.log("The Knight aspect has been selected!");
     };
 
@@ -66,7 +66,7 @@ export default function customization() {
     characterButton4.innerHTML = "Archer";
     characterButton4.value = "SELECT";
     characterButton4.onclick = function () {
-        socket.emit("Character chosen", "Archer")
+        socket.emit("characterselect", "Archer")
         // Do something when the button is clicked
         console.log("The Archer aspect has been selected!");
     };
@@ -99,7 +99,7 @@ export default function customization() {
     elementButton1.value = "SELECT";
     socket.emit("Element chosen", "Water")
     elementButton1.onclick = function () {
-        socket.emit("Element chosen", "Water")
+        socket.emit("elementselect", "Water")
         console.log("The Water aspect has been selected!");
     };
 
@@ -112,7 +112,7 @@ export default function customization() {
     elementButton2.className = "characterbutton";
     elementButton2.innerHTML = "Fire";
     elementButton2.value = "SELECT";
-    socket.emit("Element chosen", "Fire")
+    socket.emit("elementselect", "Fire")
     elementButton2.onclick = function () {
         socket.emit("Element chosen", "Fire")
         console.log("The Fire aspect has been selected!");
@@ -129,7 +129,7 @@ export default function customization() {
     elementButton4.innerHTML = "Earth";
     elementButton4.value = "SELECT";
     elementButton4.onclick = function () {
-        socket.emit("Element chosen", "Earth")
+        socket.emit("elementselect", "Earth")
         console.log("The Earth aspect has been selected!");
     };
 
