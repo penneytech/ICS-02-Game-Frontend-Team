@@ -73,8 +73,10 @@ socket.on("clientupdateposition", (message) => {
   moveOpponents(message);
 });
 
-socket.on("clientspawn", (message) => {
-  console.log("Recieved Initial Position:", message);
-  let playerposition = getGlobal('playerposition');
-  //setGlobal('playerposition', { "x": message.x, "y": message.y });
-});
+// socket.on("clientspawn", (message) => {
+//   console.log("Recieved Initial Position:", message);
+//   let playerposition = getGlobal('playerposition');
+//   playerposition.x = message.x;
+//   playerposition.y = message.y;
+//   setGlobal('playerposition', playerposition);
+// });

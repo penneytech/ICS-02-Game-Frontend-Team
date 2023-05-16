@@ -20,8 +20,8 @@ export function drawOpponents() {
       ctx.beginPath();
       let x = opponent.x;
       let y = opponent.y;
-      x = x - playerposition.x + canvasWidth / 2;
-      y = y - playerposition.y + canvasHeight / 2;
+      x = x - playerposition.x + canvasWidth / 2 - playerposition.width / 2;
+      y = y - playerposition.y + canvasHeight / 2 - playerposition.height / 2;
       let opponentImage = characters[opponent.character];
 
       // Initialize frame counter for opponent if not already present

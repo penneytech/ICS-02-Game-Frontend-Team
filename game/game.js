@@ -12,6 +12,8 @@ import { drawTreasure } from "./treasure.js";
 import { collectTreasure } from "./Collect.js";
 import { userInterface } from "./userInterface.js";
 import { drawOpponents } from "../opponents/drawOpponents.js";
+import { checkCollision } from "../opponents/checkCollision.js";
+
 // Global page variables 
 let ctx;
 let canvas;
@@ -55,13 +57,14 @@ function gameLoop() {
   // Draw the player sprite
   drawSprite();
 
-  // 
-
   // Create a user interface
   userInterface();
 
   // Collect treasure 
   collectTreasure();
+
+  // Check for collisions
+  checkCollision();
 
   // Loop this function (this always stays at the bottom)
   setTimeout(gameLoop, 16.67);
