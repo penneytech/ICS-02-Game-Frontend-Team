@@ -57,6 +57,8 @@ socket.on("myscore", (message) => {
   setGlobal('myscore', message)
 });
 
+
+
 // // Receive treasure from backend
 socket.on("treasureupdate", (message) => {
   console.log("treasure set:", message)

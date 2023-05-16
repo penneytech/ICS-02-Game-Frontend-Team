@@ -21,23 +21,24 @@ export function moveJoystick() {
   let direction = String(getDirection());
 
   let speed = getGlobal('speed');
-  if (isMobile()){
-    if (direction.indexOf("N") != -1 && canMove("up")) {
+
+  // if (isMobile()){
+  //   if (direction.indexOf("N") != -1 && canMove("up")) {
+  //     playerposition.x -= speed;
+  //   }
+  //   if (direction.indexOf("S") != -1 && canMove("down")) {
+  //     playerposition.x += speed;
+  //   }
+  //   if (direction.indexOf("E") != -1 && canMove("right")) {
+  //     playerposition.y -= speed;
+  //   }
+  //   if (direction.indexOf("W") != -1 && canMove("left")) {
+  //     playerposition.y += speed;
+  //   }
+  // } else {
+    if (direction.indexOf("W") != -1 && canMove("left")) {
       playerposition.x -= speed;
     }
-    if (direction.indexOf("S") != -1 && canMove("down")) {
-      playerposition.x += speed;
-    }
-    if (direction.indexOf("E") != -1 && canMove("right")) {
-      playerposition.y -= speed;
-    }
-    if (direction.indexOf("W") != -1 && canMove("left")) {
-      playerposition.y += speed;
-    }
-  } else {
-    if (direction.indexOf("W") != -1 && canMove("left")) {
-      playerposition.x -= speed;
-    }
     if (direction.indexOf("E") != -1 && canMove("right")) {
       playerposition.x += speed;
     }
@@ -47,7 +48,8 @@ export function moveJoystick() {
     if (direction.indexOf("S") != -1 && canMove("down")) {
       playerposition.y += speed;
     }
-  }
+  //}
+
 
   // Limit the movement of the sprite within the map
   if (playerposition.x <= 0) {
