@@ -18,6 +18,8 @@ export function collectTreasure(playerRect, treasureRect) {
     const playerposition = getGlobal('playerposition');
     const ctx = getGlobal('ctx');
 
+    messageSent =false
+
     treasure.forEach((piece, index) => {
         if ((playerposition.x - width ) < piece.x + width &&
             (playerposition.x - width ) + playerposition.width > piece.x &&
