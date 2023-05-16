@@ -16,9 +16,7 @@ export function drawOpponents() {
   let framerate = 10;
 
   userMap.forEach((opponent, opponentId) => {
-    
     if (opponent.username !== getGlobal('username')) {
-
       ctx.beginPath();
       let x = opponent.x;
       let y = opponent.y;
@@ -37,14 +35,18 @@ export function drawOpponents() {
         ctx.drawImage(opponentImage[opponentImageIndex], x, y, 50, 50);
       }
 
+      // Render opponent name
+      ctx.font = '14px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = 'white';
+      ctx.fillText(opponent.username, x + 25, y - 10);
+
       // Increase frame counter
       opponentFramecounters[opponentId]++;
 
       if (opponentFramecounters[opponentId] > framerate * 3) {
         opponentFramecounters[opponentId] = 0;
       }
-
     }
-
   });
 }
