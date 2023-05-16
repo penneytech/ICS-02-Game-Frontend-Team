@@ -17,6 +17,8 @@ export function collectTreasure(playerRect, treasureRect) {
     const treasure = getGlobal('treasure');
     const playerposition = getGlobal('playerposition');
     const ctx = getGlobal('ctx');
+    
+    messageSent =false
 
     for (let i = 0; i < treasure.length; i++) {
         let piece = treasure[i];
