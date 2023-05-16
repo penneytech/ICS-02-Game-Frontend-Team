@@ -27,8 +27,8 @@ export function checkCollision() {
 
       // Define hitbox for the opponent
       const opponentHitbox = {
-        x: x,
-        y: y,
+        x: x - (playerposition.width / 2),
+        y: y - (playerposition.height / 2),
         width: 50,  // Adjust according to your opponent sprite size
         height: 50  // Adjust according to your opponent sprite size
       };
@@ -44,9 +44,9 @@ export function checkCollision() {
   });
 
   // If the hit opponent has changed, log and emit
-  if (hitOpponent !== lastHitOpponent) {
+  if (hitOpponent !== lastHitOpponent && hitOpponent !== null) {
     console.log("HIT OPPONENT:", hitOpponent);
-    socket.emit("hitopponent", hitOpponent);
+    socket.emit("hitopponent", {"user": getGlobal('username'), "hit": hitOpponent});
     lastHitOpponent = hitOpponent;
   }
 

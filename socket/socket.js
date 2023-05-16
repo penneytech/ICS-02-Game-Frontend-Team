@@ -58,7 +58,6 @@ socket.on("myscore", (message) => {
 });
 
 
-
 // // Receive treasure from backend
 socket.on("treasureupdate", (message) => {
   console.log("treasure set:", message)
