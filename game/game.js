@@ -13,7 +13,6 @@ import { collectTreasure } from "./Collect.js";
 import { userInterface } from "./userInterface.js";
 import { drawOpponents } from "../opponents/drawOpponents.js";
 import { checkCollision } from "../opponents/checkCollision.js";
-
 // Global page variables 
 let ctx;
 let canvas;
