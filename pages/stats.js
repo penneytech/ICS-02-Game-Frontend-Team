@@ -3,9 +3,11 @@ import menu from './menu.js'
 
 export default function stats() {
     console.log("Stats ran!");
-let players = JSON.parse(getGlobal('leaderboard'));
+
+    let players = JSON.parse(getGlobal('leaderboard'));
+
     console.log('PLAYERS', players[0])
-    
+
     let content = document.getElementById('content');
     content.innerHTML = "";
 
@@ -13,13 +15,13 @@ let players = JSON.parse(getGlobal('leaderboard'));
     statsContainer.style.display = "flex";
     statsContainer.style.flexDirection = "column"
 
-  
+
     // Create the table
     const table = document.createElement('table'); // Create a table element
 
     for (let i = 0; i < players.length; i++) {
         //console.log(players[i]);
-        
+
         const tr = document.createElement('tr'); // Create a table row element
         const placeTd = document.createElement('td'); // Create a table data element for the "Place" column
         const nameTd = document.createElement('td'); // Create a table data element for the player's name
@@ -41,7 +43,7 @@ let players = JSON.parse(getGlobal('leaderboard'));
     // Add a back button
     const backButton = document.createElement('button');
     backButton.innerHTML = "Back";
-    backButton.onclick = function() {
+    backButton.onclick = function () {
         menu();
     }
 

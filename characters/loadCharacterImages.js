@@ -1,7 +1,7 @@
 import { setGlobal } from "../globals.js";
 
 // List of folders that contain the character images (four images per character)
-let characters = ['piratemage'];
+let characters = ['Mage'];
 
 let characterimages = {}
 

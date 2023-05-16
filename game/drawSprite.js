@@ -15,7 +15,7 @@ export function drawSprite() {
 
   // Determine which character image to load based on frame count
   const characterIndex = Math.floor(framecounter / framerate);
-  const img = getGlobal('characters')['piratemage'][characterIndex];
+  const img = getGlobal('characters')[getGlobal('character')][characterIndex];
 
   ctx.drawImage(
      img,

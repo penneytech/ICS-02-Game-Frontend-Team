@@ -12,7 +12,7 @@ ctx.fillRect(0, 0, canvasWidth, 50);
 // Draw the score
 ctx.fillStyle = "white";
 ctx.font = "20px Arial";
-ctx.fillText("Score: " + getGlobal('points'), 10, 20);
+ctx.fillText("Score: " + getGlobal('myscore'), 10, 20);
 
 // Draw the timer horizontally beside the score
 ctx.fillStyle = "white";
@@ -24,21 +24,7 @@ const ingameleaderboard = getGlobal('ingameleaderboard');
 ctx.fillStyle = "white";
 ctx.font = "20px Arial";
 ingameleaderboard.forEach((player, index) => {
-    ctx.fillText(player.name + ": " + player.score, canvasWidth - 200, 20 + (index * 30));
+    ctx.fillText(player.username + ": " + player.score, canvasWidth - 200, 20 + (index * 30));
 });
-
-
-// // Draw the leaderboard
-// ctx.fillStyle = "white";
-// ctx.font = "20px Arial";
-// ctx.fillText("Leaderboard", 10, 20);
-
-// // Get the leaderboard
-// const leaderboard = getGlobal('leaderboard');
-
-// // Draw the leaderboard
-// for (let i = 0; i < leaderboard.length; i++) {
-//     ctx.fillText(leaderboard[i].name + ": " + leaderboard[i].score, 10, 50 + (i * 30));
-// }
 
 }

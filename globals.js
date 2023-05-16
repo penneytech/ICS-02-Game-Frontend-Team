@@ -11,13 +11,13 @@ const globals = {
     playerposition: { "x": 300, "y": 300, "width": 50, "height": 50 },
     username: "",
     points: 0,
-    type: "water",
-    character: "piratemage",
+    element: "water",
+    character: "Mage",
     timeremaining: 0,
     ingameleaderboard: [
-        { "name": "user1", "score": 0 },
-        { "name": "user2", "score": 0 },
-        { "name": "user3", "score": 0 },
+        { "username": "user1", "score": 0 },
+        { "username": "user2", "score": 0 },
+        { "username": "user3", "score": 0 },
     ],
     treasure: [],
     mapWidth: 1280,
@@ -26,6 +26,7 @@ const globals = {
     characters: [],
     speed: 4,
     userMap: [],
+    myscore: 0,
 };
 
 // Define a function to set a global variable
