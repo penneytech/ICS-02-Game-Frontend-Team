@@ -9,6 +9,8 @@ export function canMove(direction) {
 
   let playerTileX, playerTileY;
 
+//  if (window.innerWidth < 600) {
+  
   if (direction === 'up') {
     playerTileX = Math.floor((playerposition.x) / tileSize);
     playerTileY = Math.floor((playerposition.y - padding) / tileSize);
@@ -36,3 +38,4 @@ export function canMove(direction) {
     return false;
   }
 }
+ // }

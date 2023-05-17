@@ -11,6 +11,7 @@ import './game/joystick.js';
 
 import initGame from './game/initGame.js';
 import { isMobile } from './game/isMobile.js';
+import { timer } from './game/timer.js';
 import { loadMapImages } from './map/loadMapImages.js'
 import { loadCharacterImages } from './characters/loadCharacterImages.js'
 
@@ -65,10 +66,9 @@ async function startGame() {
     loadCharacterImages().then(() => {
       //Load Character Images
 
-     // isMobile()
-       //initGame()
+      isMobile();
+      //initGame()
       loginDialogue();
-
 
     }).catch(error => {
       console.log(error)
