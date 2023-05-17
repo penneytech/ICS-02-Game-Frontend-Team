@@ -5,6 +5,7 @@ import { getGlobal, setGlobal } from "../globals.js";
 export function userInterface() {
 const ctx = getGlobal('ctx');
 const canvasWidth = getGlobal('canvasWidth');
+const canvasHeight = getGlobal('canvasHeight');
 
 ctx.textAlign = 'left';
 
@@ -13,12 +14,12 @@ ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
 ctx.fillRect(0, 0, canvasWidth, 50);
   
   ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-  ctx.fillRect(430, 0, 300, 200);
+  ctx.fillRect(430, 0, canvasWidth/3, canvasHeight/3);
 
   ctx.beginPath();
-  ctx.strokeStyle = "rgba(255, 255, 255)";
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.8)";
   ctx.lineWidth = 5;
-  ctx.strokeRect(430, 0, 300, 200);
+  ctx.strokeRect(430, 0, canvasWidth/2, canvasHeight/2);
   
 // Import a font 
 // let myFont = new FontFace('pixFont', 'url(fonts.googleapis.com/css2?family=Allura&family=Golos+Text&family=Press+Start+2P&display=swap)');
