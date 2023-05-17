@@ -12,8 +12,8 @@ const globals = {
     login: false,
     username: "",
     points: 0,
-    element: "water",
-    character: "Mage",
+    element: "Fire",
+    character: "Knight",
     timeremaining: 0,
     ingameleaderboard: [
         { "username": "user1", "score": 0 },

@@ -22,8 +22,9 @@ export function drawOpponents() {
       let y = opponent.y;
       x = x - playerposition.x + canvasWidth / 2 - playerposition.width / 2;
       y = y - playerposition.y + canvasHeight / 2 - playerposition.height / 2;
-      let opponentImage = characters[opponent.character];
+      let opponentImage = characters[opponent.character][opponent.element];
 
+      console.log("IMAGE", opponentImage, opponent.character, opponent.element)
       // Initialize frame counter for opponent if not already present
       if (!opponentFramecounters[opponentId]) {
         opponentFramecounters[opponentId] = 0;

@@ -10,10 +10,11 @@ export function drawSprite() {
   const playerposition = getGlobal('playerposition');
   const canvasWidth = getGlobal('canvasWidth');
   const canvasHeight = getGlobal('canvasHeight');
+  const element = getGlobal('element');
 
   // Determine which character image to load based on frame count
   const characterIndex = Math.floor(framecounter / framerate);
-  const img = characters[getGlobal('character')][characterIndex];
+  const img = characters[getGlobal('character')][element][characterIndex];
 
   ctx.drawImage(
     img,
