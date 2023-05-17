@@ -9,6 +9,7 @@ const globals = {
     canvasHeight: 600,
     ctx: [],
     playerposition: { "x": 300, "y": 300, "width": 50, "height": 50 },
+    login: false,
     username: "",
     points: 0,
     element: "water",
@@ -27,6 +28,7 @@ const globals = {
     speed: 4,
     userMap: [],
     myscore: 0,
+    
 };
 
 // Define a function to set a global variable

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monda&family=Press+Start+2P&display=swap');
 
 html,
 body {
@@ -6,9 +7,14 @@ body {
   width: 100%;
   margin: 0px;
   text-align: center;
-  font-family: 'Chakra Petch';
-  text-shadow: 10px 5px 5px #422457;
-  background-image: linear-gradient(#745788, #245655);
+  font-family: 'Monda';
+  text-shadow: 10px 5px 10px  #a478c2;
+  /* #422457; */
+  
+  background-image: url("back2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
   background-attachment: fixed;
 }
 
@@ -20,11 +26,14 @@ td {
   box-shadow: 10px 5px 5px #422457;
 }
 
-
 #title {
   opacity: 1;
-  font-size: 25px;
-  margin: 10px;
+  font-size: 20px;
+  font-family: "Press Start 2P";
+  line-height: 30px;
+  color: white;
+  margin: 30px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   flex: 1;
@@ -41,9 +50,7 @@ td {
 .cards {
   flex: 1;
   height: 50px;
-
 }
-
 
 #characterbar {
   display: flex;
@@ -82,6 +89,10 @@ td {
   border-style: solid;
   background-color: black;
   margin: 10px;
+  border-width: 3px;
+  border-radius: 20px;
+  border-color: white;
+
 }
 
 #content {
@@ -112,6 +123,7 @@ td {
 input {
   margin: 8px;
   font-size: 18px;
+  font-family: 'Monda';
   background-color: #333;
   color: white;
   padding: 6px;
@@ -129,7 +141,7 @@ button {
   align-items: center;
   justify-content: center;
   margin-top: 10px;
-  font-family: 'Chakra Petch';
+  font-family: 'Monda';
   box-shadow: 10px 5px 5px #422457;
 }
 
@@ -148,7 +160,6 @@ button:hover {
 }
 
 #joy1Div {
-  /* opacity: 0; */
   width: 100px;
   height: 100px;
   margin: 20px;

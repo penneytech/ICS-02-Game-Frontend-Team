@@ -7,6 +7,7 @@ let leftPressed = false;
 let rightPressed = false;
 let upPressed = false;
 let downPressed = false;
+let secret = false;
 
 let length = getGlobal("mapLength");
 let width = getGlobal("mapWidth");
