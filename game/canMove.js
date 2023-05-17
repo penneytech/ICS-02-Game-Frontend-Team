@@ -25,6 +25,9 @@ export function canMove(direction) {
     playerTileY = Math.floor((playerposition.y) / tileSize);
   }
 
+
+
+
   const map = wallsfloor;
   const mapWidth = 40;
   const tileIndex = Math.max(0, playerTileY * mapWidth + playerTileX);
