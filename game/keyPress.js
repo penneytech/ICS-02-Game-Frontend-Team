@@ -13,7 +13,6 @@ let width = getGlobal("mapWidth");
 
 let playerpositionold = { "x": 100, "y": 100 };
 
-//let x = 100, y = 100;
 
 // Add event listeners for key presses
 document.addEventListener("keydown", function (event) {
@@ -46,20 +45,42 @@ document.addEventListener("keyup", function (event) {
 
 export function keyPress() {
 
+
+  
   let playerposition = getGlobal('playerposition');
 
-  if (leftPressed && canMove('left')) {
-    playerposition.x -= speed;
-  }
-  if (rightPressed && canMove('right')) {
-    playerposition.x += speed;
-  }
-  if (upPressed && canMove('up')) {
-    playerposition.y -= speed;
-  }
-  if (downPressed && canMove('down')) {
-    playerposition.y += speed;
-  }
+
+
+  
+ var diagonalSpeed = speed / Math.sqrt(2);
+
+  console.log("speed is" +speed);
+  console.log("diagonalspeed is" +diagonalSpeed);
+
+
+if (leftPressed && upPressed && canMove('left') && canMove('up')) {
+  playerposition.x -= diagonalSpeed;
+  playerposition.y -= diagonalSpeed;
+} else if (leftPressed && downPressed && canMove('left') && canMove('down')) {
+  playerposition.x -= diagonalSpeed;
+  playerposition.y += diagonalSpeed;
+} else if (rightPressed && upPressed && canMove('right') && canMove('up')) {
+  playerposition.x += diagonalSpeed;
+  playerposition.y -= diagonalSpeed;
+} else if (rightPressed && downPressed && canMove('right') && canMove('down')) {
+  playerposition.x += diagonalSpeed;
+  playerposition.y += diagonalSpeed;
+} 
+
+else if (leftPressed && canMove('left')) {
+  playerposition.x -= speed;
+} else if (rightPressed && canMove('right')) {
+  playerposition.x += speed;
+} else if (upPressed && canMove('up')) {
+  playerposition.y -= speed;
+} else if (downPressed && canMove('down')) {
+  playerposition.y += speed;
+}
 
   // Limit the movement of the sprite within the map
   if (playerposition.x <= 0) {
@@ -75,6 +96,10 @@ export function keyPress() {
     playerposition.y = length;
   }
 
+
+
+
+  
   // Check to see if playerposition has updated. 
 
   if (JSON.stringify(playerpositionold) !== JSON.stringify({ "x": playerposition.x, "y": playerposition.y })) {
