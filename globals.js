@@ -9,10 +9,11 @@ const globals = {
     canvasHeight: 600,
     ctx: [],
     playerposition: { "x": 300, "y": 300, "width": 50, "height": 50 },
+    login: false,
     username: "",
     points: 0,
-    element: "water",
-    character: "Mage",
+    element: "Water",
+    character: "Knight",
     timeremaining: 0,
     ingameleaderboard: [
         { "username": "user1", "score": 0 },
@@ -27,6 +28,7 @@ const globals = {
     speed: 4,
     userMap: [],
     myscore: 0,
+    userdata: [],
 };
 
 // Define a function to set a global variable

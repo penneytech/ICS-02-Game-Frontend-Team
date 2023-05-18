@@ -7,8 +7,11 @@ import { getGlobal, setGlobal } from '../globals.js';
 import loginFail from './loginFail.js';
 import loginSucceed from './loginSucceed.js';
 import moveOpponents from '../opponents/moveOpponents.js';
+import { timer } from '../game/timer.js';
 
 // Connect to the server and set the socket global variable
+//const socket = io("https://ics-02-game-backend-team--aidanseepersaud.repl.co");
+// const socket = io("http://localhost:3000");
 const socket = io("https://ics-02-game-backend-team.paulpenney.repl.co");
 //const socket = io("http://localhost:3000");
 
@@ -71,6 +74,20 @@ socket.on("treasureupdate", (message) => {
 socket.on("clientupdateposition", (message) => {
     moveOpponents(message);
 });
+
+// Receive opponent positions from backend
+socket.on("userdata", (message) => {
+    console.log("userdata:", message);
+
+    setGlobal('userdata', message);
+    setGlobal('character', message.character);
+    setGlobal('element', message.element);
+});
+
+// Receive time from backend
+// socket.on("", (message) => {
+//   timer(message);
+// });
 
 // socket.on("clientspawn", (message) => {
 //   console.log("Recieved Initial Position:", message);

@@ -7,6 +7,7 @@ function collectGem(data, socket, io) {
     console.log("");
 }
 
+// Flags to prevent multiple messages being sent
 let hitDetected = false;
 let messageSent = false;
 const height = 30;

@@ -20,7 +20,7 @@ export function initopponents(message) {
     opponents.forEach((opponent) => {
         // add users to the map
         console.log('initopponents', opponent)
-        userMap.set(opponent.username, { x: opponent.x, y: opponent.y, type: opponent.type, currentscore: opponent.currentscore });
+        userMap.set(opponent.username, { x: opponent.x, y: opponent.y, element: opponent.element, character: opponent.character });
     });
 
     // delete a user by key
@@ -28,7 +28,7 @@ export function initopponents(message) {
 
     // loop through all remaining users in the map
     userMap.forEach((user, key) => {
-        console.log(`${key} ${user.x} ${user.y} ${user.type} ${user.currentscore}`);
+        console.log(`${key} ${user.x} ${user.y} ${user.element} ${user.character}`);
     });
 
     setGlobal('userMap', userMap);

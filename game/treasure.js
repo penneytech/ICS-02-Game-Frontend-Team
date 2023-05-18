@@ -33,7 +33,7 @@ export function drawTreasure() {
 
         let gemImage = gemImages[String(treasure[i].gem)];
         if (gemImage) {
-            ctx.drawImage(gemImage, x, y, 40, 40);
+            ctx.drawImage(gemImage, x, y, 32, 32);
         }
     }
 }

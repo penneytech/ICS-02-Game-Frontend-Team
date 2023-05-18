@@ -9,7 +9,7 @@ import { generateMap } from './generateMap.js';
 import { keyPress } from './keyPress.js';
 import { moveJoystick } from "./joystick.js";
 import { drawTreasure } from "./treasure.js";
-import { collectTreasure } from "./Collect.js";
+import { collectTreasure } from "./collect.js";
 import { userInterface } from "./userInterface.js";
 import { drawOpponents } from "../opponents/drawOpponents.js";
 import { checkCollision } from "../opponents/checkCollision.js";

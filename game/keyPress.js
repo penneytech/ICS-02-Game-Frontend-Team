@@ -7,13 +7,13 @@ let leftPressed = false;
 let rightPressed = false;
 let upPressed = false;
 let downPressed = false;
+let secret = false;
 
 let length = getGlobal("mapLength");
 let width = getGlobal("mapWidth");
 
 let playerpositionold = { "x": 100, "y": 100 };
 
-//let x = 100, y = 100;
 
 // Add event listeners for key presses
 document.addEventListener("keydown", function (event) {
@@ -47,17 +47,29 @@ document.addEventListener("keyup", function (event) {
 export function keyPress() {
 
   let playerposition = getGlobal('playerposition');
+  let diagonalSpeed = speed / Math.sqrt(2);
 
-  if (leftPressed && canMove('left')) {
+  if (leftPressed && upPressed && canMove('left') && canMove('up')) {
+    playerposition.x -= diagonalSpeed;
+    playerposition.y -= diagonalSpeed;
+  } else if (leftPressed && downPressed && canMove('left') && canMove('down')) {
+    playerposition.x -= diagonalSpeed;
+    playerposition.y += diagonalSpeed;
+  } else if (rightPressed && upPressed && canMove('right') && canMove('up')) {
+    playerposition.x += diagonalSpeed;
+    playerposition.y -= diagonalSpeed;
+  } else if (rightPressed && downPressed && canMove('right') && canMove('down')) {
+    playerposition.x += diagonalSpeed;
+    playerposition.y += diagonalSpeed;
+  }
+
+  else if (leftPressed && canMove('left')) {
     playerposition.x -= speed;
-  }
-  if (rightPressed && canMove('right')) {
+  } else if (rightPressed && canMove('right')) {
     playerposition.x += speed;
-  }
-  if (upPressed && canMove('up')) {
+  } else if (upPressed && canMove('up')) {
     playerposition.y -= speed;
-  }
-  if (downPressed && canMove('down')) {
+  } else if (downPressed && canMove('down')) {
     playerposition.y += speed;
   }
 
@@ -81,12 +93,13 @@ export function keyPress() {
     let socket = getGlobal('socket');
     //console.log("EMIT NEW POSITION", { "x": playerposition.x, "y": playerposition.y });
     playerpositionold = { "x": playerposition.x, "y": playerposition.y };
-    setGlobal('playerposition', playerposition)
+    setGlobal('playerposition', playerposition);
+    
     socket.emit("updateposition", {
       'username': getGlobal('username'),
       "x": playerposition.x,
       "y": playerposition.y,
-      "type": getGlobal('type'),
+      "element": getGlobal('element'),
       "character": getGlobal('character'),
     })
 
