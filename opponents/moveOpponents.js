@@ -21,7 +21,7 @@ export default function moveOpponents(message) {
             username: message.username,
             x: message.x,
             y: message.y,
-            type: message.element,
+            element: message.element,
             character: message.character,
         });
     }

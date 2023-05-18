@@ -12,8 +12,8 @@ import { timer } from '../game/timer.js';
 // Connect to the server and set the socket global variable
 //const socket = io("https://ics-02-game-backend-team--aidanseepersaud.repl.co");
 // const socket = io("http://localhost:3000");
-const socket = io("https://ics-02-game-backend-team.paulpenney.repl.co");
-//const socket = io("http://localhost:3000");
+//const socket = io("https://ics-02-game-backend-team.paulpenney.repl.co");
+const socket = io("http://localhost:3000");
 
 setGlobal('socket', socket);
 
