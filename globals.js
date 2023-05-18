@@ -12,7 +12,7 @@ const globals = {
     login: false,
     username: "",
     points: 0,
-    element: "Fire",
+    element: "Water",
     character: "Knight",
     timeremaining: 0,
     ingameleaderboard: [
@@ -28,7 +28,7 @@ const globals = {
     speed: 4,
     userMap: [],
     myscore: 0,
-    
+    userdata: [],
 };
 
 // Define a function to set a global variable

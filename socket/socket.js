@@ -75,6 +75,15 @@ socket.on("clientupdateposition", (message) => {
     moveOpponents(message);
 });
 
+// Receive opponent positions from backend
+socket.on("userdata", (message) => {
+    console.log("userdata:", message);
+
+    setGlobal('userdata', message);
+    setGlobal('character', message.character);
+    setGlobal('element', message.element);
+});
+
 // Receive time from backend
 // socket.on("", (message) => {
 //   timer(message);

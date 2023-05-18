@@ -1,7 +1,7 @@
 import { getGlobal, setGlobal } from "../globals.js";
 
 export default function moveOpponents(message) {
-    console.log("moveOpponents.js: moveOpponents() called.", message);
+    //console.log("moveOpponents.js: moveOpponents() called.", message);
     let userMap = getGlobal('userMap'); // Assuming userMap is a dictionary with usernames as keys.
 
     // Parse the message if it's a string

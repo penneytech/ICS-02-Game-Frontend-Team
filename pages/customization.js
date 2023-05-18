@@ -35,6 +35,7 @@ export default function customization() {
             selectedCharacter = characterButton1;
         }
         socket.emit('characterselect', 'Rogue');
+        setGlobal('character', 'Rogue')
         console.log('The Rogue aspect has been selected!');
     };
 
@@ -45,6 +46,8 @@ export default function customization() {
     characterButton1.appendChild(CB1I);
 
     // Repeat the same for characterButton2, characterButton3, and characterButton4
+
+    // ...
 
     const characterButton2 = document.createElement('button');
     characterButton2.className = 'characterbutton';
@@ -62,6 +65,7 @@ export default function customization() {
             selectedCharacter = characterButton2;
         }
         socket.emit('characterselect', 'Mage');
+        setGlobal('character', 'Mage');
         console.log('The Mage aspect has been selected!');
     };
 
@@ -88,6 +92,7 @@ export default function customization() {
             selectedCharacter = characterButton3;
         }
         socket.emit('characterselect', 'Knight');
+        setGlobal('character', 'Knight');
         console.log('The Knight aspect has been selected!');
     };
 
@@ -114,6 +119,7 @@ export default function customization() {
             selectedCharacter = characterButton4;
         }
         socket.emit('characterselect', 'Archer');
+        setGlobal('character', 'Archer');
         console.log('The Archer aspect has been selected!');
     };
 
@@ -153,6 +159,7 @@ export default function customization() {
             selectedElement = elementButton1;
         }
         socket.emit('elementselect', 'Water');
+        setGlobal('element', 'Water');
         console.log('The Water aspect has been selected!');
     };
     // Append the image to the button
@@ -179,6 +186,7 @@ export default function customization() {
             selectedElement = elementButton2;
         }
         socket.emit('elementselect', 'Fire');
+        setGlobal('element', 'Fire');
         console.log('The Fire aspect has been selected!');
     };
 
@@ -205,6 +213,7 @@ export default function customization() {
             selectedElement = elementButton4;
         }
         socket.emit('elementselect', 'Earth');
+        setGlobal('element', 'Earth');
         console.log('The Earth aspect has been selected!');
     };
 
@@ -233,4 +242,34 @@ export default function customization() {
     };
 
     content.appendChild(backButton);
+
+    // Highlight current choices green
+    const characterselect = getGlobal('character');
+
+    if (characterselect === 'Rogue') {
+        characterButton1.classList.add('green');
+        selectedCharacter = characterButton1;
+    } else if (characterselect === 'Mage') {
+        characterButton2.classList.add('green');
+        selectedCharacter = characterButton2;
+    } else if (characterselect === 'Knight') {
+        characterButton3.classList.add('green');
+        selectedCharacter = characterButton3;
+    } else if (characterselect === 'Archer') {
+        characterButton4.classList.add('green');
+        selectedCharacter = characterButton4;
+    }
+
+    const elementselect = getGlobal('element');
+
+    if (elementselect === 'Water') {
+        elementButton1.classList.add('green');
+        selectedElement = elementButton1;
+    } else if (elementselect === 'Fire') {
+        elementButton2.classList.add('green');
+        selectedElement = elementButton2;
+    } else if (elementselect === 'Earth') {
+        elementButton4.classList.add('green');
+        selectedElement = elementButton4;
+    }
 }
