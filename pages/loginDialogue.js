@@ -3,6 +3,8 @@ This code sets up the login functionality for the webpage. It creates a login fo
 */
 
 // Import the required functions from the 'globals.js' module
+
+
 import { getGlobal, setGlobal } from '../globals.js';
 
 export default function loginDialogue() {

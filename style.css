@@ -39,10 +39,48 @@ td {
   flex: 1;
 }
 
+#subtitle {
+  opacity: 1;
+  font-size: 12px;
+  font-family: "Press Start 2P";
+  line-height: 30px;
+  color: white;
+  margin: 30px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+} 
+
 #content {
   display: flex;
   width: 100%;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* styles text within help message */
+#popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.6); /* add gray background */
+}
+
+#popup-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 2px solid black;
+  background-color: white;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
   align-items: center;
   justify-content: center;
 }
