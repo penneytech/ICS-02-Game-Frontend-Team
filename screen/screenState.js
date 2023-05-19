@@ -13,6 +13,17 @@ if (isMobile) {
 } else {
   console.log("[initGame]: Show title!");
 }
+  const infoBtn = document.querySelector('.info-btn');
+const infoContent = document.querySelector('.info-content');
+
+infoBtn.addEventListener('click', () => {
+  infoContent.classList.toggle('visible');
+  if (infoContent.classList.contains('visible')) {
+    infoBtn.textContent = 'Click to close info';
+  } else {
+    infoBtn.textContent = 'Click for more info';
+  }
+});
     
     
 }
