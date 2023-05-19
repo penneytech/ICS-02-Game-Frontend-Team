@@ -18,24 +18,27 @@ export function collectTreasure(playerRect, treasureRect) {
     const treasure = getGlobal('treasure');
     const playerposition = getGlobal('playerposition');
     const ctx = getGlobal('ctx');
-    
-    messageSent =false
 
-    for (let i = 0; i < treasure.length; i++) {
-        let piece = treasure[i];
+    treasure.forEach((piece, index) => {
         if ((playerposition.x - width) < piece.x + width &&
             (playerposition.x - width) + playerposition.width > piece.x &&
             (playerposition.y - height) < piece.y + height &&
             (playerposition.y - height) + playerposition.height > piece.y) {
+            hitDetected = true;
             let socket = getGlobal('socket');
-            socket.emit("gemcollected", i);
-            console.log("Hit detected with:", piece, i);
+            console.log("Hit detected with:", piece, index);
+            treasure[index].x = - 1000;
+            treasure[index].y = - 1000;
+            setGlobal('treasure'.treasure);
+            socket.emit("gemcollected", index);
 
-            // Remove the gem from the local array
-            treasure.splice(i, 1);
-            setGlobal('treasure', treasure);
-            // Since we've modified the array, break out of the loop
-            break;
-        }
+
+
+        } // End of if statement
+    }); // End of foreach
+
+    if (hitDetected == false) {
+        messageSent = false;
     }
+    hitDetected = false;
 } // End of collectTreasure
