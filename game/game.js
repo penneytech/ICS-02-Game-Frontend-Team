@@ -31,41 +31,59 @@ export default function startGame() {
   gameLoop();
 }
 
+// Define frames per second (FPS)
+let fps = 60; // Change this value to whatever frame rate you want your game to run at
+let interval = 1000 / fps; // Calculate the interval in milliseconds
+let lastTime = Date.now();
+
 
 function gameLoop() {
-  // Clear the canvas (This always stays at the top)
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Generate the map
-  generateMap(backgroundmap);
-  generateMap(details);
-  generateMap(wallsfloor);
+  let now = Date.now();
+  let elapsed = now - lastTime;
 
-  //Draw the treasure
-  drawTreasure();
+  // If enough time has passed, update the game
+  if (elapsed > interval) {
 
-  // Call keyPress
-  keyPress();
+    lastTime = now - (elapsed % interval);
 
-  // Call joystick
-  moveJoystick();
+    // Clear the canvas (This always stays at the top)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw opponents
-  drawOpponents();
-  
-  // Draw the player sprite
-  drawSprite();
+    // Generate the map
+    generateMap(backgroundmap);
+    generateMap(details);
+    generateMap(wallsfloor);
 
-  // Create a user interface
-  userInterface();
+    //Draw the treasure
+    drawTreasure();
 
-  // Collect treasure 
-  collectTreasure();
+    // Call keyPress
+    keyPress();
 
-  // Check for collisions
-  checkCollision();
+    // Call joystick
+    moveJoystick();
 
-  // Loop this function (this always stays at the bottom)
-  setTimeout(gameLoop, 16.67);
+    // Draw opponents
+    drawOpponents();
+
+    // Draw the player sprite
+    drawSprite();
+
+    // Create a user interface
+    userInterface();
+
+    // Collect treasure 
+    collectTreasure();
+
+    // Check for collisions
+    checkCollision();
+
+    // Loop this function (this always stays at the bottom)
+    // setTimeout(gameLoop, 16.67);
+  }
+
+  // Request next frame
+  requestAnimationFrame(gameLoop);
   //requestAnimationFrame(gameLoop);
 }
