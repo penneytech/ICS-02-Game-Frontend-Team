@@ -25,7 +25,7 @@ export function loadCharacterImages() {
           const imagename = i.toString();
           characterimages[character][subfolder][i] = new Image();
           characterimages[character][subfolder][i].onload = () => {
-            console.log(`Loaded image ${imagename} for character ${character} in ${subfolder}`);
+            //console.log(`Loaded image ${imagename} for character ${character} in ${subfolder}`);
             numLoaded++;
             if (numLoaded === numImages) {
               setGlobal('characters', characterimages);
@@ -33,7 +33,7 @@ export function loadCharacterImages() {
             }
           };
           characterimages[character][subfolder][i].onerror = () => {
-            console.log(`Error loading image ${imagename} for character ${character} in ${subfolder}`);
+            //console.log(`Error loading image ${imagename} for character ${character} in ${subfolder}`);
             numLoaded++;
             if (numLoaded === numImages) {
               setGlobal('characters', characterimages);

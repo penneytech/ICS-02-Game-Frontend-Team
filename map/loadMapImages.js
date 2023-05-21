@@ -20,7 +20,7 @@ export function loadMapImages() {
     imagenames.forEach((imagename, index) => {
       images[imagename] = new Image();
       images[imagename].onload = () => {
-        console.log(`Loaded image ${imagename}`);
+       // console.log(`Loaded image ${imagename}`);
         numLoaded++;
         if (numLoaded === numImages) {
           setGlobal('mapimages', images);
@@ -28,7 +28,7 @@ export function loadMapImages() {
         }
       };
       images[imagename].onerror = () => {
-        console.log(`Error loading image ${imagename}`);
+        //console.log(`Error loading image ${imagename}`);
         numLoaded++;
         if (numLoaded === numImages) {
           setGlobal('mapimages', images);

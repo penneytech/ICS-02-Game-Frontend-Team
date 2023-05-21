@@ -58,7 +58,6 @@ socket.on("myscore", (message) => {
     setGlobal('myscore', message)
 });
 
-
 // // Receive treasure from backend
 socket.on("treasureupdate", (message) => {
     console.log("treasure set:", message)
@@ -82,15 +81,10 @@ socket.on("userdata", (message) => {
     setGlobal('element', message.element);
 });
 
-// Receive time from backend
-// socket.on("", (message) => {
-//   timer(message);
-// });
-
-// socket.on("clientspawn", (message) => {
-//   console.log("Recieved Initial Position:", message);
-//   let playerposition = getGlobal('playerposition');
-//   playerposition.x = message.x;
-//   playerposition.y = message.y;
-//   setGlobal('playerposition', playerposition);
-// });
+socket.on("clientspawn", (message) => {
+  console.log("Recieved Initial Position:", message);
+  let playerposition = getGlobal('playerposition');
+  playerposition.x = message.x;
+  playerposition.y = message.y;
+  setGlobal('playerposition', playerposition);
+});
