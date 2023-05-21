@@ -10,10 +10,8 @@ import moveOpponents from '../opponents/moveOpponents.js';
 import { timer } from '../game/timer.js';
 
 // Connect to the server and set the socket global variable
-//const socket = io("https://ics-02-game-backend-team--aidanseepersaud.repl.co");
-// const socket = io("http://localhost:3000");
-const socket = io("https://ics-02-game-backend-team.paulpenney.repl.co");
-//const socket = io("http://localhost:3000");
+//const socket = io("https://ics-02-game-backend-team.paulpenney.repl.co");
+const socket = io("http://localhost:3000");
 
 setGlobal('socket', socket);
 
@@ -55,7 +53,7 @@ socket.on("ingameleaderboard", (message) => {
     setGlobal('ingameleaderboard', message)
 });
 
-// Get leaderboard from the server
+// Get my score
 socket.on("myscore", (message) => {
     setGlobal('myscore', message)
 });

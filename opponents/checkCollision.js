@@ -48,6 +48,11 @@ export function checkCollision() {
     console.log("HIT OPPONENT:", hitOpponent);
     socket.emit("hitopponent", {"user": getGlobal('username'), "hit": hitOpponent});
     lastHitOpponent = hitOpponent;
+
+    // Reset lastHitOpponent to null after 1 second
+    setTimeout(() => {
+      lastHitOpponent = null;
+    }, 1000);
   }
 
   return hitOpponent;
