@@ -43,6 +43,13 @@ export function drawOpponents() {
             ctx.fillStyle = 'white';
             ctx.fillText(opponent.username, x + 25, y - 10);
 
+            // Render opponent score
+            const score = opponent.score;
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = 'white';
+            ctx.fillText(score, x + 25, y + 70);
+        
             // Increase frame counter
             opponentFramecounters[opponentId]++;
 

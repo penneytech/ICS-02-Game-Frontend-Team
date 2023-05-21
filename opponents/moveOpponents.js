@@ -15,6 +15,7 @@ export default function moveOpponents(message) {
         userMap.get(message.username).y = message.y;
         userMap.get(message.username).element = message.element;
         userMap.get(message.username).character = message.character;
+        userMap.get(message.username).score = message.score;
     } else {
         // If the user doesn't exist in the map, add them to the map.
         userMap.set(message.username, {
