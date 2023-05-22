@@ -21,6 +21,8 @@ import { initopponents } from './socket/initOpponents.js';
 
 import loginDialogue from './pages/loginDialogue.js';
 
+import './sounds/backgroundMusic.js'
+
 // Create a new userMap object with dummy opponents
 
 let userMap = new Map();
