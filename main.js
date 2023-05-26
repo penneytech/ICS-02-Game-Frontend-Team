@@ -9,15 +9,15 @@ import './game/keyPress.js';
 // Register Joystick
 import './game/joystick.js';
 
-import initGame from './game/initGame.js';
-import { isMobile } from './game/isMobile.js';
+// Start the internal timer
 import { timer } from './game/timer.js';
+timer();
+
+import { isMobile } from './game/isMobile.js';
 import { loadMapImages } from './map/loadMapImages.js'
 import { loadCharacterImages } from './characters/loadCharacterImages.js'
 
-import menu from './pages/menu.js'
-import { getGlobal, setGlobal } from './globals.js';
-import { initopponents } from './socket/initOpponents.js';
+import { setGlobal } from './globals.js';
 
 import loginDialogue from './pages/loginDialogue.js';
 

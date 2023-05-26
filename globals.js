@@ -14,7 +14,8 @@ const globals = {
     points: 0,
     element: "Water",
     character: "Knight",
-    timeremaining: 0,
+    timeleft: 120000,
+    betweenrounds: false,
     ingameleaderboard: [
         { "username": "user1", "score": 0 },
         { "username": "user2", "score": 0 },

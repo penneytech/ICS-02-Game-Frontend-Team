@@ -13,6 +13,7 @@ import { collectTreasure } from "./collect.js";
 import { userInterface } from "./userInterface.js";
 import { drawOpponents } from "../opponents/drawOpponents.js";
 import { checkCollision } from "../opponents/checkCollision.js";
+import { betweenRounds } from "./betweenRounds.js";
 // Global page variables 
 let ctx;
 let canvas;
@@ -78,6 +79,8 @@ function gameLoop() {
 
     // Check for collisions
     checkCollision();
+
+    betweenRounds();
 
     // Loop this function (this always stays at the bottom)
     // setTimeout(gameLoop, 16.67);

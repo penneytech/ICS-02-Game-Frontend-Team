@@ -1,16 +1,13 @@
 import { getGlobal, setGlobal } from "../globals.js";
 
-export function setTime(){
-  let time = getGlobal("timeremaining");
-  if(time > 0){
-    time--;
-    setGlobal("timeremaining", time);
-  }
-}
+export function timer() {
 
-export function timer(message){
-  message = (message/1000);
-  setGlobal("timeremaining", message);
-  setInterval(setTime, 1000);
-}
+  setInterval(function () {
 
+    let timeleft = getGlobal("timeleft");
+    timeleft -= 1000;
+    setGlobal("timeleft", timeleft);
+    console.log("timeleft", timeleft);
+  }, 1000);
+
+}

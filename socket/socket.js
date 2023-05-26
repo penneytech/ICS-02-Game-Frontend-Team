@@ -115,3 +115,22 @@ socket.on("removeopponent", (message) => {
     console.log("Remove opponent:", message);
     opponentRemove(message);
 });
+
+// Get the round state
+socket.on("betweenrounds", (message) => {
+    console.log("betweenrounds:", message);
+    if (message == true) {
+        setGlobal('betweenrounds', true);
+        setGlobal('timeleft', 10000)
+    } else {
+        setGlobal('betweenrounds', false);
+        setGlobal('timeleft', 120000);
+    }
+});
+
+// When the user connects, get time remaining
+socket.on("timeleft", (message) => {
+    console.log("timeleft:", message);
+    setGlobal('timeleft', message);
+
+});

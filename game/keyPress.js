@@ -89,7 +89,9 @@ export function keyPress() {
 
   // Check to see if playerposition has updated. 
 
-  if (JSON.stringify(playerpositionold) !== JSON.stringify({ "x": playerposition.x, "y": playerposition.y })) {
+  let betweenrounds = getGlobal('betweenrounds');
+
+  if (JSON.stringify(playerpositionold) !== JSON.stringify({ "x": playerposition.x, "y": playerposition.y }) && betweenrounds == false) {
     let socket = getGlobal('socket');
     //console.log("EMIT NEW POSITION", { "x": playerposition.x, "y": playerposition.y });
     playerpositionold = { "x": playerposition.x, "y": playerposition.y };

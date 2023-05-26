@@ -1,7 +1,6 @@
 import customization from "./customization.js";
 import stats from "./stats.js";
 import initGame from "../game/initGame.js";
-import { timer } from '../game/timer.js';
 
 export default function menu() {
 
@@ -18,7 +17,6 @@ export default function menu() {
     button1.textContent = "Play";
     button1.onclick = function() {
         initGame();
-        timer(10000);
     }
 
     const button2 = document.createElement("button");
