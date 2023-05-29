@@ -46,30 +46,31 @@ document.addEventListener("keyup", function (event) {
 
 export function keyPress() {
 
+  let betweenrounds = getGlobal("betweenrounds");
   let playerposition = getGlobal('playerposition');
   let diagonalSpeed = speed / Math.sqrt(2);
 
-  if (leftPressed && upPressed && canMove('left') && canMove('up')) {
+  if (leftPressed && upPressed && canMove('left') && canMove('up') && betweenrounds == false) {
     playerposition.x -= diagonalSpeed;
     playerposition.y -= diagonalSpeed;
-  } else if (leftPressed && downPressed && canMove('left') && canMove('down')) {
+  } else if (leftPressed && downPressed && canMove('left') && canMove('down') && betweenrounds == false) {
     playerposition.x -= diagonalSpeed;
     playerposition.y += diagonalSpeed;
-  } else if (rightPressed && upPressed && canMove('right') && canMove('up')) {
+  } else if (rightPressed && upPressed && canMove('right') && canMove('up') && betweenrounds == false) {
     playerposition.x += diagonalSpeed;
     playerposition.y -= diagonalSpeed;
-  } else if (rightPressed && downPressed && canMove('right') && canMove('down')) {
+  } else if (rightPressed && downPressed && canMove('right') && canMove('down') && betweenrounds == false) {
     playerposition.x += diagonalSpeed;
     playerposition.y += diagonalSpeed;
   }
 
-  else if (leftPressed && canMove('left')) {
+  else if (leftPressed && canMove('left') && betweenrounds == false) {
     playerposition.x -= speed;
-  } else if (rightPressed && canMove('right')) {
+  } else if (rightPressed && canMove('right') && betweenrounds == false ) {
     playerposition.x += speed;
-  } else if (upPressed && canMove('up')) {
+  } else if (upPressed && canMove('up') && betweenrounds == false) {
     playerposition.y -= speed;
-  } else if (downPressed && canMove('down')) {
+  } else if (downPressed && canMove('down') && betweenrounds == false) {
     playerposition.y += speed;
   }
 
@@ -89,9 +90,7 @@ export function keyPress() {
 
   // Check to see if playerposition has updated. 
 
-  let betweenrounds = getGlobal('betweenrounds');
-
-  if (JSON.stringify(playerpositionold) !== JSON.stringify({ "x": playerposition.x, "y": playerposition.y }) && betweenrounds == false) {
+  if (JSON.stringify(playerpositionold) !== JSON.stringify({ "x": playerposition.x, "y": playerposition.y })) {
     let socket = getGlobal('socket');
     //console.log("EMIT NEW POSITION", { "x": playerposition.x, "y": playerposition.y });
     playerpositionold = { "x": playerposition.x, "y": playerposition.y };

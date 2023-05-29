@@ -3,10 +3,9 @@ import { getGlobal } from '../globals.js';
 export function betweenRounds() {
     let betweenrounds = getGlobal("betweenrounds");
     let timeleft = getGlobal("timeleft");
-    //let player  = getGlobal("player");
+    let myscore = getGlobal("myscore");
     let canvas = getGlobal("canvas");
     let ctx = canvas.getContext("2d");
-    let boxSize = 300;
 
     if (betweenrounds == true) {
         ctx.font = "bold 40px comic sans";
@@ -22,7 +21,7 @@ export function betweenRounds() {
         ctx.fillStyle = "white";
         ctx.fillText("Round Over!", canvas.width / 2, canvas.height / 2 - 100);
         ctx.fillStyle = "red";
-       // ctx.fillText(`${player.currentscore} Points Gained!`, canvas.width / 2, canvas.height / 2);
+        ctx.fillText(`${myscore} Points Gained!`, canvas.width / 2, canvas.height / 2);
         ctx.fillStyle = "white";
         ctx.fillText(`Next Round in ${timeleft / 1000}  seconds...`, canvas.width / 2, canvas.height / 2 + 100);
     }

@@ -13,7 +13,6 @@ const player2 = {
 let winner;
 let damage;
 
-
 if (player1.element == fire && player2.element == water) {
   winner = player2;
 } else if (player1.element == fire && player2.element == earth) {
@@ -33,7 +32,6 @@ if (player1.element == fire && player2.element == water) {
 } else if (player1.element == earth && player2.element == earth) {
   winner = tie;
 }
-
 
 if (player1.character == archer && player2.character == knight) {
   damage = 0.25;
@@ -68,8 +66,6 @@ if (player1.character == archer && player2.character == knight) {
 } else if (player1.character == knight && player2.character == archer) {
   damage = 0.75;
 }
-
-
 
 if (winner == player1) {
   player2.points = player2.points * damage;

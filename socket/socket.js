@@ -8,6 +8,7 @@ import loginFail from './loginFail.js';
 import loginSucceed from './loginSucceed.js';
 import moveOpponents from '../opponents/moveOpponents.js';
 import opponentRemove from '../opponents/opponentRemove.js';
+import generateUserStats from '../pages/generateUserStats.js'
 
 // Connect to the server and set the socket global variable
 //const socket = io("https://ics-02-game-backend-team.paulpenney.repl.co");
@@ -114,6 +115,13 @@ socket.on("clientspawn", (message) => {
 socket.on("removeopponent", (message) => {
     console.log("Remove opponent:", message);
     opponentRemove(message);
+});
+
+// When the user stats are received,  
+socket.on("userstatsdata", (message) => {
+    console.log("userstatsdata:", message);
+    setGlobal('userstats', message);
+    generateUserStats();
 });
 
 // Get the round state
