@@ -1,5 +1,5 @@
 import { getGlobal } from "../globals.js";
-import { isMobile } from './isMobile.js';
+// import { isMobile } from './isMobile.js';
 import { canMove } from "./canMove.js"
 
 let jd;

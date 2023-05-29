@@ -1,5 +1,9 @@
 // This is the entrypoint file that ties every other file together, and calls the initial modules
 
+
+// Load popup listeners
+import './pages/popup.js';
+
 // Run the socket module to establish a connection with the server
 import './socket/socket.js';
 
@@ -13,7 +17,7 @@ import './game/joystick.js';
 import { timer } from './game/timer.js';
 timer();
 
-import { isMobile } from './game/isMobile.js';
+//import { isMobile } from './game/isMobile.js';
 import { loadMapImages } from './map/loadMapImages.js'
 import { loadCharacterImages } from './characters/loadCharacterImages.js'
 
@@ -64,10 +68,8 @@ async function startGame() {
 
     //Load Character Images
     loadCharacterImages().then(() => {
-      //Load Character Images
-
-      isMobile();
-      //initGame()
+      
+      // Load Login Dialogue
       loginDialogue();
 
     }).catch(error => {

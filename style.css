@@ -58,7 +58,6 @@ td {
   justify-content: center;
 }
 
-/* styles text within help message */
 #popup {
   display: none;
   position: fixed;
@@ -68,7 +67,6 @@ td {
   height: 100%;
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.6);
-  /* add gray background */
 }
 
 #popup-inner {
@@ -82,6 +80,15 @@ td {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  max-height: 80vh;
+  max-width: 600px;
+  width: 100%;
+  margin: ;
+}
+
+#popup-inner img{
+ width: 100%;
 }
 
 .cards {
@@ -192,14 +199,13 @@ button:hover {
   background-color: green;
 }
 
-#joy1Div {
+/* #joy1Div {
   width: 100px;
   height: 100px;
   margin: 20px;
   position: absolute;
-  /* left: 0; */
   right: 0;
-}
+} */
 
 #character {
   display: flex;
