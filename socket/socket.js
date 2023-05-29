@@ -142,3 +142,11 @@ socket.on("timeleft", (message) => {
     setGlobal('timeleft', message);
 
 });
+
+// Reset the score
+socket.on("resetscore", () => {
+    console.log("reset score");
+    let myscore = getGlobal('myscore');
+    myscore = 0;
+    setGlobal('myscore', myscore);
+});
