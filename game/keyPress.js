@@ -1,5 +1,6 @@
 import { getGlobal, setGlobal } from "../globals.js";
 import { canMove } from "./canMove.js"
+import { moveJoystick } from "./joystick.js";
 
 let speed = getGlobal("speed");
 
@@ -7,7 +8,6 @@ let leftPressed = false;
 let rightPressed = false;
 let upPressed = false;
 let downPressed = false;
-let secret = false;
 
 let length = getGlobal("mapLength");
 let width = getGlobal("mapWidth");
@@ -62,9 +62,7 @@ export function keyPress() {
   } else if (rightPressed && downPressed && canMove('right') && canMove('down') && betweenrounds == false) {
     playerposition.x += diagonalSpeed;
     playerposition.y += diagonalSpeed;
-  }
-
-  else if (leftPressed && canMove('left') && betweenrounds == false) {
+  } else if (leftPressed && canMove('left') && betweenrounds == false) {
     playerposition.x -= speed;
   } else if (rightPressed && canMove('right') && betweenrounds == false ) {
     playerposition.x += speed;
@@ -72,6 +70,8 @@ export function keyPress() {
     playerposition.y -= speed;
   } else if (downPressed && canMove('down') && betweenrounds == false) {
     playerposition.y += speed;
+  } else {
+    moveJoystick();
   }
 
   // Limit the movement of the sprite within the map
@@ -98,8 +98,8 @@ export function keyPress() {
     
     socket.emit("updateposition", {
       'username': getGlobal('username'),
-      "x": playerposition.x,
-      "y": playerposition.y,
+      "x": Math.round(playerposition.x),
+      "y": Math.round(playerposition.y),
       "element": getGlobal('element'),
       "character": getGlobal('character'),
     })
@@ -108,3 +108,4 @@ export function keyPress() {
   }
 }
 
+// Joystick Code

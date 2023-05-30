@@ -7,7 +7,6 @@ import { getGlobal } from "../globals.js";
 import { drawSprite } from "./drawSprite.js";
 import { generateMap } from './generateMap.js';
 import { keyPress } from './keyPress.js';
-import { moveJoystick } from "./joystick.js";
 import { drawTreasure } from "./treasure.js";
 import { collectTreasure } from "./collect.js";
 import { userInterface } from "./userInterface.js";
@@ -62,9 +61,6 @@ function gameLoop() {
     // Call keyPress
     keyPress();
 
-    // Call joystick
-    moveJoystick();
-
     // Draw opponents
     drawOpponents();
 
@@ -82,11 +78,7 @@ function gameLoop() {
 
     betweenRounds();
 
-    // Loop this function (this always stays at the bottom)
-    // setTimeout(gameLoop, 16.67);
   }
-
   // Request next frame
   requestAnimationFrame(gameLoop);
-  //requestAnimationFrame(gameLoop);
 }
